@@ -1,0 +1,155 @@
+{
+  "obif_version": "0.1.0",
+  "brand_version": "0.1.0",
+  "status": "active",
+  "brand": {
+    "id": "brand:eidos-agi",
+    "display_name": "Eidos AGI",
+    "legal_name": "Eidos AGI",
+    "positioning": "Software for agents. Governance for reality.",
+    "doctrine": "Telos pulls. Praxis steers. Workshop, not showroom.",
+    "tagline": "Autonomous intelligence, human agency.",
+    "personality": [
+      "direct",
+      "unhurried",
+      "workshop",
+      "no hype"
+    ]
+  },
+  "logo": [
+    {
+      "id": "logo:tridot",
+      "role": "primary",
+      "path": "assets/logos/tridot.svg",
+      "sha256": "f4234b24926838c02e8a413cea1b0a0db20181e43886d8401b6c7625cfbc9b52",
+      "fill": "currentColor",
+      "clear_space": "1x dot radius",
+      "min_size_px": 24,
+      "rotation_deg": -5
+    },
+    {
+      "id": "logo:tridot-brass",
+      "role": "on-ink",
+      "path": "assets/logos/tridot-brass.svg",
+      "sha256": "6aced3bde03238c007703389307cba3c0de5a3d8f38edbae605f4f41ee0b5da7"
+    },
+    {
+      "id": "logo:tridot-ink",
+      "role": "on-paper",
+      "path": "assets/logos/tridot-ink.svg",
+      "sha256": "87a055c596eeb5f5d9bafcb15623d0f0d5e244f4c80a9a615a697e5177c550d5"
+    },
+    {
+      "id": "logo:tridot-cream",
+      "role": "reverse-on-ink",
+      "path": "assets/logos/tridot-cream.svg",
+      "sha256": "896aa26207f92e53aaef15d40ee8cbf7f56239dee0706245a696f4e49a093282"
+    }
+  ],
+  "usage_rules": [
+    "Never stretch, skew, or change the -5 degree rotation.",
+    "Never add drop shadows, gradients, or outlines.",
+    "Never place the mark on a busy photo without a scrim.",
+    "Cover the words Eidos AGI, keep the three dots: you still know."
+  ],
+  "typefaces": [
+    {
+      "id": "type:space-grotesk",
+      "family": "Space Grotesk",
+      "roles": [
+        "display",
+        "body",
+        "ui"
+      ],
+      "license": "SIL OFL 1.1",
+      "license_path": "assets/fonts/OFL.txt",
+      "files": [
+        {
+          "path": "assets/fonts/SpaceGrotesk-Variable.ttf",
+          "sha256": "acad6de1fc93436f5c0f1f4137751ef04f1aea3063e7036535970ffcfbd79f72"
+        },
+        {
+          "path": "assets/fonts/SpaceGrotesk-Regular.otf",
+          "sha256": "3697c882a7e56163e17a7ffc7500e037da9ad90a86552e49f2678050ba503167"
+        },
+        {
+          "path": "assets/fonts/SpaceGrotesk-Medium.otf",
+          "sha256": "37cf87252dcbdf51a6cd753ff991cb3376a47390ba23fdfb371074a34db65b63"
+        },
+        {
+          "path": "assets/fonts/SpaceGrotesk-Bold.otf",
+          "sha256": "be8709abe941dcc98f3625663b340ca20dc90cd6806ee76bd68b568097b6368f"
+        }
+      ]
+    }
+  ],
+  "voice": {
+    "attributes": [
+      "Confident",
+      "unhurried",
+      "plain"
+    ],
+    "do": [
+      "Lead with what changed.",
+      "Define shorthand before using it.",
+      "Show the work."
+    ],
+    "dont": [
+      "Hype.",
+      "SaaS landing grids.",
+      "Gradient blobs.",
+      "Cold blue #6c8aff."
+    ]
+  },
+  "modes": [
+    "paper",
+    "ink",
+    "system"
+  ],
+  "content_blocks": [
+    {
+      "id": "block:lede",
+      "name": "Lede",
+      "when": "Opening summary. One paragraph under the title.",
+      "refuses": [
+        "hero subcopy with three clauses of hype"
+      ],
+      "states": [
+        "default"
+      ],
+      "dir": "blocks/lede"
+    },
+    {
+      "id": "block:page-hero",
+      "name": "PageHero",
+      "when": "Page header. One h1. Mark optional.",
+      "refuses": [
+        "two H1s",
+        "gradient mesh behind the title"
+      ],
+      "states": [
+        "default"
+      ],
+      "dir": "blocks/page-hero"
+    },
+    {
+      "id": "block:evidence-card",
+      "name": "EvidenceCard",
+      "when": "A quote, a proof, a dated claim.",
+      "refuses": [
+        "testimonial carousel",
+        "star ratings"
+      ],
+      "states": [
+        "default"
+      ],
+      "dir": "blocks/evidence-card"
+    }
+  ],
+  "deprecated": {
+    "hex": [
+      "#6c8aff"
+    ],
+    "note": "Cold blue retired 2025. Geometry of the tridot is kept; fill is brass/ink/cream/currentColor."
+  }
+}

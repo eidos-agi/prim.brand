@@ -1,0 +1,62 @@
+/* Projection of tokens/dtcg.json. Do not invent hex here. */
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("assets/fonts/SpaceGrotesk-Variable.ttf") format("truetype");
+  font-weight: 300 700;
+  font-display: swap;
+}
+
+:root, html[data-palette="paper"] {
+  color-scheme: light;
+  --bg: #f0ebe4;
+  --surface: #e4ded6;
+  --raised: #f7f3ed;
+  --ink: #1e1a17;
+  --ink-soft: #8a8078;
+  --line: #d4cec6;
+  --accent: #c4935a;
+  --accent-ink: #faf5ec;
+  --sage: #5a6c52;
+  --stop: #b4573b;
+  --sans: "Space Grotesk", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --radius: 3px;
+}
+
+html[data-palette="ink"] {
+  color-scheme: dark;
+  --bg: #161210;
+  --surface: #1e1a17;
+  --raised: #241f1a;
+  --ink: #dcd5cb;
+  --ink-soft: #8b8179;
+  --line: #332c26;
+  --accent: #d8a263;
+  --accent-ink: #1e1a17;
+  --sage: #8fa385;
+  --stop: #c4694f;
+}
+
+@media (prefers-color-scheme: dark) {
+  html[data-palette="system"] {
+    color-scheme: dark;
+    --bg: #161210;
+    --surface: #1e1a17;
+    --raised: #241f1a;
+    --ink: #dcd5cb;
+    --ink-soft: #8b8179;
+    --line: #332c26;
+    --accent: #d8a263;
+    --accent-ink: #1e1a17;
+    --sage: #8fa385;
+    --stop: #c4694f;
+  }
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+}

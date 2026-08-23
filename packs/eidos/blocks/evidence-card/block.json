@@ -1,0 +1,8 @@
+{
+  "id": "block:evidence-card",
+  "name": "EvidenceCard",
+  "when": "A quote, a proof, a dated claim. One card, one claim.",
+  "refuses": ["testimonial carousel", "star ratings", "three-up logo wall"],
+  "states": ["default"],
+  "implementation": { "html": "block.html", "css": "block.css" }
+}

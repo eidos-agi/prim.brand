@@ -1,0 +1,36 @@
+{
+  "$schema": "https://tr.designtokens.org/format/",
+  "color": {
+    "paper": {
+      "bg": { "$type": "color", "$value": "#f0ebe4" },
+      "surface": { "$type": "color", "$value": "#e4ded6" },
+      "raised": { "$type": "color", "$value": "#f7f3ed" },
+      "ink": { "$type": "color", "$value": "#1e1a17" },
+      "ink-soft": { "$type": "color", "$value": "#8a8078" },
+      "line": { "$type": "color", "$value": "#d4cec6" },
+      "accent": { "$type": "color", "$value": "#c4935a" },
+      "accent-ink": { "$type": "color", "$value": "#faf5ec" },
+      "sage": { "$type": "color", "$value": "#5a6c52" },
+      "stop": { "$type": "color", "$value": "#b4573b" }
+    },
+    "ink": {
+      "bg": { "$type": "color", "$value": "#161210" },
+      "surface": { "$type": "color", "$value": "#1e1a17" },
+      "raised": { "$type": "color", "$value": "#241f1a" },
+      "ink": { "$type": "color", "$value": "#dcd5cb" },
+      "ink-soft": { "$type": "color", "$value": "#8b8179" },
+      "line": { "$type": "color", "$value": "#332c26" },
+      "accent": { "$type": "color", "$value": "#d8a263" },
+      "accent-ink": { "$type": "color", "$value": "#1e1a17" },
+      "sage": { "$type": "color", "$value": "#8fa385" },
+      "stop": { "$type": "color", "$value": "#c4694f" }
+    }
+  },
+  "font": {
+    "sans": { "$type": "fontFamily", "$value": ["Space Grotesk", "Segoe UI", "Helvetica Neue", "Arial", "sans-serif"] },
+    "mono": { "$type": "fontFamily", "$value": ["ui-monospace", "SF Mono", "Menlo", "Consolas", "monospace"] }
+  },
+  "size": {
+    "radius": { "$type": "dimension", "$value": "3px" }
+  }
+}
