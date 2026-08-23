@@ -4,7 +4,7 @@ The **brand prim**. Product name: brand prim. Family name: `prim.brand`.
 
 Its own profile. Not OKF. Not OBIF. `profile: brand`.
 
-OBIF is retired. Old `profile: obif` packs are read as brand kits without implementations.
+OBIF is retired. Do not mint `profile: obif`. Old packs are historical; there is no compatibility reader yet.
 
 ## Face
 

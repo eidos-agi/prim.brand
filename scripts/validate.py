@@ -74,6 +74,27 @@ def main() -> None:
             if BLUE.search(p.read_text(errors="ignore")):
                 fail(f"deprecated blue in {p.relative_to(pack)}")
 
+    dtcg_path = pack / "tokens" / "dtcg.json"
+    kit = pack / "kit.css"
+    if dtcg_path.exists() and kit.exists():
+        import re
+        dtcg = json.loads(dtcg_path.read_text())
+        vals = set()
+        def walk(o):
+            if isinstance(o, dict):
+                v = o.get("$value")
+                if isinstance(v, str) and v.startswith("#"):
+                    vals.add(v.lower())
+                for x in o.values():
+                    walk(x)
+            elif isinstance(o, list):
+                for x in o:
+                    walk(x)
+        walk(dtcg)
+        for hx in set(re.findall(r"#[0-9a-fA-F]{6}", kit.read_text())):
+            if hx.lower() not in vals:
+                fail(f"kit.css {hx} not in tokens/dtcg.json")
+
     print(f"OK    {pack.name}: {len(ident['logo'])} marks, "
           f"{sum(len(t['files']) for t in ident['typefaces'])} fonts, "
           f"{len(ident['content_blocks'])} blocks")
