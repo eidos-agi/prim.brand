@@ -1,21 +1,317 @@
 {
-  "brand_version": "0.1.0",
+  "brand_version": "0.2.0",
   "status": "active",
   "brand": {
     "id": "brand:prim",
     "display_name": "Prims",
     "legal_name": "Prim",
-    "legal_note": "Prim is the product noun and category. Eidos AGI is the company; this pack is the Prim product surface, not the company house kit.",
+    "legal_note": "Prim is the product noun and category. Eidos AGI is the company; this pack is the Prim product surface, not the company house kit. Do not mint prims.brand.",
     "positioning": "A file that stores information, and tools that interact with it.",
     "tagline": "The source of truth. Everything else is a view.",
     "tagline_alt": "Send me the prim.",
+    "category_line": "The primitive unit of knowledge and memory for AI.",
     "personality": [
       "precise",
       "calm",
       "infrastructure-grade",
       "slightly absolute without being loud"
-    ]
+    ],
+    "theme": {
+      "default_web": "paper",
+      "theme_color": "#f4f3ef",
+      "live_kit": "https://prims.sh/brand/prim/"
+    }
   },
+  "identifiers": {
+    "pack_uti": "com.eidosagi.prim",
+    "app_id": "sh.prims.desktop",
+    "team_id": "Y6CQ4SWPWM",
+    "app_path": "/Applications/Prims Desktop.app",
+    "desktop_face": "https://prims.sh/desktop/",
+    "desktop_face_never": "desktop.prims.sh"
+  },
+  "nouns": [
+    {
+      "term": "Prim",
+      "kind": "category / file noun",
+      "use": "Singular pack. The file. Everyday speech stays on Prim.",
+      "dont": "Do not say 'a Prims' for one file. Profile names belong in specs."
+    },
+    {
+      "term": "Prims",
+      "kind": "product family",
+      "use": "The family of tools around the file. Display name of this pack.",
+      "dont": "Do not use Prims as the singular file noun."
+    },
+    {
+      "term": "Prims Desktop",
+      "kind": "app",
+      "use": "Personal Mac memory pack. Live face is prims.sh/desktop.",
+      "dont": "Never desktop.prims.sh. Do not call it Prim Desktop or the Desktop connector."
+    },
+    {
+      "term": "Eidos AGI",
+      "kind": "company",
+      "use": "Company house. Use packs/eidos. Under the hood, Prims are additive profiles from Eidos.",
+      "dont": "Do not put the Eidos tridot or brass/cream house doctrine on a Prim surface."
+    },
+    {
+      "term": "Prim Tool",
+      "kind": "tool",
+      "use": "One pairing. Surface talks to a person. Connector talks to a system. Tools cite a type; they are not types.",
+      "dont": "If it is not surface or connector, it is a script. Do not mint a third tool kind."
+    },
+    {
+      "term": "Viewer",
+      "kind": "surface",
+      "use": "A surface. One of three Desktop doors (Viewer, Connectors, Chat). Hosted on prims.sh/viewers.",
+      "dont": "Viewer is not a Desktop connector."
+    },
+    {
+      "term": "Connectors",
+      "kind": "Desktop door",
+      "use": "Talks to a system. Ops secondary. Still behind approve.",
+      "dont": "Do not hide a viewer inside Connectors."
+    },
+    {
+      "term": "Chat",
+      "kind": "Desktop door",
+      "use": "ACP harness under the hood. Chat steers the open Prim. Drivers stay hidden in chrome.",
+      "dont": "Do not brand the harness in the chrome. Compatibility is the story; the driver is not."
+    },
+    {
+      "term": "Applet",
+      "kind": "composition",
+      "use": "A bench a person opens. Cites prims; may cite tools. Not a type. Not a third tool kind.",
+      "dont": "Do not mint prim.applet. Not a separate product line."
+    },
+    {
+      "term": "Process",
+      "kind": "house-owned procedure",
+      "use": "A process written down is a prim. Pin id and hash. A connector walks it.",
+      "dont": "Not a required field. Not one official process per type. Not a type called pipeline, factory, or forge."
+    },
+    {
+      "term": "Prim Secrets",
+      "kind": "provisional applet",
+      "use": "Exploratory. Encrypted Prim as the vault file. Knox stays under the hood.",
+      "dont": "Not a CHARTER lock. Do not mint a secrets type from the stub page."
+    },
+    {
+      "term": "Prim Approvals",
+      "kind": "provisional applet",
+      "use": "Exploratory. Agent asks; you approve. Hancock stays under the hood.",
+      "dont": "Not a CHARTER lock. Do not mint an approvals type from the stub page."
+    },
+    {
+      "term": "Drive sync",
+      "kind": "provisional lean",
+      "use": "Lean only on the Desktop page. Prims Drive is the product; sync is a feature of that plane.",
+      "dont": "Do not cement Drive-as-sync. Do not call Prims Drive 'Google Drive sync for Desktop.'"
+    }
+  ],
+  "product_family": [
+    {
+      "id": "surface:home",
+      "name": "Prim",
+      "nav": "Category",
+      "job": "The primitive unit of knowledge and memory for AI. Voice, sayings, packaging, family.",
+      "url": "https://prims.sh/",
+      "theme": "paper",
+      "status": "live",
+      "do": [
+        "Lead with the category line and the four sayings.",
+        "Keep theme paper and theme-color #f4f3ef."
+      ],
+      "dont": [
+        "Rewrite the homepage into hype.",
+        "Put Eidos company doctrine on this page."
+      ]
+    },
+    {
+      "id": "surface:desktop",
+      "name": "Prims Desktop",
+      "nav": "Desktop",
+      "job": "Personal Mac memory pack. Holds Prims, viewers, connectors, applets, and chat. Agents only see what you admit.",
+      "url": "https://prims.sh/desktop/",
+      "theme": "paper",
+      "status": "live",
+      "lockup": "logo-tight.png",
+      "doors": ["Viewer", "Connectors", "Chat"],
+      "identifiers": {
+        "app_id": "sh.prims.desktop",
+        "pack_uti": "com.eidosagi.prim",
+        "team_id": "Y6CQ4SWPWM",
+        "app_path": "/Applications/Prims Desktop.app"
+      },
+      "do": [
+        "Cite prims.sh/desktop as the face.",
+        "Three doors only if you mention the chrome: Viewer, Connectors, Chat.",
+        "Mark Secrets / Approvals / Drive-as-sync as provisional."
+      ],
+      "dont": [
+        "Never desktop.prims.sh.",
+        "Do not treat Viewer as a connector.",
+        "Do not put the AI harness in the chrome."
+      ]
+    },
+    {
+      "id": "surface:drive",
+      "name": "Prims Drive",
+      "nav": "Drive",
+      "job": "Multi-org cloud drive for teams and agents. .prim packs live on the drive plane.",
+      "url": "https://prims.sh/drive/",
+      "theme": "paper",
+      "status": "stub",
+      "lockup": "logo.png",
+      "do": [
+        "Call it a multi-org teams cloud drive.",
+        "Keep git, local, and legacy Drive under the hood."
+      ],
+      "dont": [
+        "This is not Google Drive sync for Prim Desktop.",
+        "Do not crown one email as the mega-hub."
+      ]
+    },
+    {
+      "id": "surface:applets",
+      "name": "Prims Applets",
+      "nav": "Applets",
+      "job": "Soft framing for compositions agents hit all the time: a password or an approval. Lives with Prims Desktop.",
+      "url": "https://prims.sh/applets/",
+      "theme": "paper",
+      "status": "exploratory",
+      "lockup": "logo.png",
+      "do": [
+        "Treat Secrets and Approvals as applets, not a third product line.",
+        "Keep Knox and Hancock as engines under the hood."
+      ],
+      "dont": [
+        "Do not mint types from this page.",
+        "Not a separate product. Not just a connector."
+      ]
+    },
+    {
+      "id": "surface:workbook",
+      "name": "Prim Workbook",
+      "nav": "Workbook",
+      "job": "Living viewer. workbook-editor; the pack is authority.",
+      "url": "https://prims.sh/workbook/",
+      "theme": "paper",
+      "status": "live",
+      "lockup": "logo.png",
+      "do": [
+        "Say the pack is authority.",
+        "Connectors on a workbook are Prim Tools, not pack types."
+      ],
+      "dont": [
+        "Do not invent workbook chrome colors into this kit.",
+        "Do not treat the viewer as the store."
+      ]
+    },
+    {
+      "id": "surface:viewers",
+      "name": "Prim viewers",
+      "nav": "Viewers",
+      "job": "A host frame. The pack stays the file.",
+      "url": "https://prims.sh/viewers/",
+      "theme": "paper",
+      "status": "live",
+      "lockup": "logo.png",
+      "do": [
+        "Call it a surface and a host frame.",
+        "Drop a .prim; resize a real tool."
+      ],
+      "dont": [
+        "Viewer is not a Desktop connector."
+      ]
+    },
+    {
+      "id": "surface:together",
+      "name": "How it comes together",
+      "nav": "Together",
+      "job": "A Prim is the file. A tool hits it. An applet is the bench. A process is one house’s order of those hits.",
+      "url": "https://prims.sh/together/",
+      "theme": "paper",
+      "status": "live",
+      "lockup": "logo.png",
+      "do": [
+        "Keep two category nouns: prims and tools.",
+        "Cite, don’t pour."
+      ],
+      "dont": [
+        "Do not mint prim.applet.",
+        "Do not add a third tool kind."
+      ]
+    },
+    {
+      "id": "surface:process",
+      "name": "prim.process",
+      "nav": "Process",
+      "job": "A process written down clearly enough to run is a process an agent can carry. The file is the argument.",
+      "url": "https://prims.sh/process/",
+      "theme": "paper",
+      "status": "live",
+      "do": [
+        "Name the steps, the tool, and who publishes.",
+        "Judgment is located, not disqualified."
+      ],
+      "dont": [
+        "Not a required field on every prim.",
+        "Not one official process per type."
+      ]
+    },
+    {
+      "id": "surface:docs",
+      "name": "Docs",
+      "nav": "Docs",
+      "job": "The spec as a prim. This page is the vessel. The pack is the file.",
+      "url": "https://prims.sh/docs/",
+      "theme": "paper",
+      "status": "live",
+      "lockup": "logo.png",
+      "do": [
+        "Read / Face / History / Pack tabs stay views of one pack."
+      ],
+      "dont": [
+        "Do not treat the HTML chrome as the specification."
+      ]
+    },
+    {
+      "id": "surface:demo",
+      "name": "Prim demo",
+      "nav": "Demo",
+      "job": "Click through kinds. Each file becomes an editor.",
+      "url": "https://prims.sh/demo/",
+      "theme": "paper",
+      "status": "live",
+      "do": [
+        "The file is the store. The editor is a view."
+      ],
+      "dont": [
+        "Do not import demo rail hexes (Linear-like blues) into this kit."
+      ]
+    },
+    {
+      "id": "surface:registry",
+      "name": "Registry",
+      "nav": "Registry",
+      "job": "Type, tool, and applet registry. Live API face is registry.prims.sh.",
+      "url": "https://registry.prims.sh/",
+      "url_nav": "https://registry.prims.sh/",
+      "url_alias": "https://prims.sh/registry/",
+      "theme": "n/a",
+      "status": "live-api",
+      "do": [
+        "Point product copy at https://registry.prims.sh/.",
+        "Types and tools are registry rows; applets are compositions."
+      ],
+      "dont": [
+        "Do not treat prims.sh/registry/ as a second registry.",
+        "Do not mint Secrets or Approvals as registry types from a stub."
+      ]
+    }
+  ],
   "logo": [
     {
       "id": "logo:folio",
@@ -24,33 +320,125 @@
       "sha256": "aa591407e2fae5a48efa7d9fbfd40ef0e7c731c8af08838ba8a1a0ef40ec23e8",
       "fill": "currentColor",
       "clear_space": "1x spine width",
-      "min_size_px": 24
+      "min_size_px": 24,
+      "note": "Spine plus folded page. Live twin: https://prims.sh/brand/prim/assets/logos/folio.svg"
     },
     {
       "id": "logo:folio-gold",
       "role": "on-ink",
       "path": "assets/logos/folio-gold.svg",
-      "sha256": "7acfde45a97ec34a328611eaa5bbb2942d531d34f70ca296fa88a59d5812d966"
+      "sha256": "7acfde45a97ec34a328611eaa5bbb2942d531d34f70ca296fa88a59d5812d966",
+      "live": "https://prims.sh/brand/prim/assets/logos/folio-gold.svg"
     },
     {
       "id": "logo:folio-ink",
       "role": "on-paper",
       "path": "assets/logos/folio-ink.svg",
-      "sha256": "363561dac34d39249420862f076064d97659569f3c431ebdcd89328694dd5660"
+      "sha256": "363561dac34d39249420862f076064d97659569f3c431ebdcd89328694dd5660",
+      "live": "https://prims.sh/brand/prim/assets/logos/folio-ink.svg"
     },
     {
       "id": "logo:folio-cream",
       "role": "reverse-on-ink",
       "path": "assets/logos/folio-cream.svg",
-      "sha256": "a1be730909582dc66e821e25d68874c9974e426a7be5d84b3b89556cb8ac057d"
+      "sha256": "a1be730909582dc66e821e25d68874c9974e426a7be5d84b3b89556cb8ac057d",
+      "live": "https://prims.sh/brand/prim/assets/logos/folio-cream.svg"
+    },
+    {
+      "id": "logo:wordmark",
+      "role": "wordmark",
+      "path": "assets/logos/logo.png",
+      "sha256": "38acf919108d3e505ff3cd1d830f60d304d51802431fe47cb5ddea0c9acd3c60",
+      "live": "https://prims.sh/logo.png",
+      "used_on": ["Drive", "Applets", "Workbook", "Viewers", "Together", "Docs"],
+      "min_height_px": 24,
+      "note": "Folio + Prim wordmark (Instrument Sans). Standard lockup. Captured from live site 2026-08-27."
+    },
+    {
+      "id": "logo:wordmark-tight",
+      "role": "wordmark-tight",
+      "path": "assets/logos/logo-tight.png",
+      "sha256": "3363d79a3c5f43ae61460dbce452028b91f4ebfa3cb397585e34543eaff6370a",
+      "live": "https://prims.sh/logo-tight.png",
+      "used_on": ["Prims Desktop"],
+      "min_height_px": 20,
+      "note": "Tighter folio-to-wordmark gap for constrained chrome (Desktop header). Captured from live site 2026-08-27."
+    },
+    {
+      "id": "logo:favicon",
+      "role": "favicon",
+      "path": "assets/logos/favicon.svg",
+      "sha256": "d9ec4c512b28ead832587fb922e7ee9d7fbbcca74137ee251351b10f49980013",
+      "live": "https://prims.sh/favicon.svg",
+      "min_size_px": 16,
+      "fill": "#111111",
+      "note": "Live tab icon as served 2026-08-27. Geometric folio silhouette. Do not replace the primary folio mark with this drawing; do not recolor it to Eidos blue."
+    },
+    {
+      "id": "logo:og",
+      "role": "og",
+      "path": "assets/logos/og.jpg",
+      "sha256": "3d9cb4340d226b963ca0299a161eadbf1f1d10e3b8b945cd76bac8753bcb833d",
+      "live": "https://prims.sh/og.jpg",
+      "size": "1200x630",
+      "note": "Current Open Graph. Folio + Prim on paper with the category line. Captured 2026-08-27."
+    },
+    {
+      "id": "logo:app-icon-paper",
+      "role": "app-icon-on-paper",
+      "path": "assets/icons/app-icon-paper.svg",
+      "sha256": "85a5148d0cf57fdb37bf6ba4938197e21b5ae81b9d9fd89b8fbc904e6fbdc652",
+      "min_size_px": 32,
+      "note": "Prims Desktop icon master. Same folio geometry as folio-ink, full-bleed paper field. macOS applies the squircle."
+    },
+    {
+      "id": "logo:app-icon-ink",
+      "role": "app-icon-on-ink",
+      "path": "assets/icons/app-icon-ink.svg",
+      "sha256": "85a48bd798ce2538fe32e2e8f5f7771f4e56863d159d862e00d35e3987fe5def",
+      "min_size_px": 32,
+      "note": "Prims Desktop icon master. Same folio geometry as folio-gold, full-bleed ink field. Prefer paper for the shipping Mac icon unless the dock is specified dark."
     }
   ],
+  "app_icon": {
+    "product": "Prims Desktop",
+    "symbol": "folio",
+    "guidance": [
+      "Use the folio mark. Do not invent a new symbol.",
+      "Full-bleed square. Do not pre-round; macOS masks the squircle.",
+      "Paper field + ink folio for the default Mac icon.",
+      "Ink field + gold folio for dark marketing tiles.",
+      "Keep spine and folded page. Clear space is already in the 200 viewBox.",
+      "Do not put the wordmark, a tridot, or a harness logo on the icon."
+    ]
+  },
+  "usage": {
+    "clear_space": "1x spine width on every side of the folio. Do not crowd the wordmark tighter than logo-tight.png.",
+    "min_size_px": {
+      "folio": 24,
+      "wordmark": 24,
+      "wordmark_tight": 20,
+      "favicon": 16,
+      "app_icon": 32
+    },
+    "modes": {
+      "paper": "Default for prims.sh. theme-color #f4f3ef. Ink folio and ink wordmark on paper.",
+      "ink": "Dark specimen and OS dark. Gold folio on ink. Cream folio only as reverse on ink.",
+      "system": "Follows prefers-color-scheme. Same two fields; no third palette."
+    }
+  },
   "usage_rules": [
     "Never stretch, skew, or add drop shadows, gradients, or outlines.",
     "Never use the Eidos tridot for Prim.",
+    "Never use desktop.prims.sh. The Desktop face is prims.sh/desktop.",
+    "Never use cold blue #6c8aff.",
     "Gold folio on ink. Ink folio on paper. Cream folio only as reverse on ink.",
     "The mark is a bound file: spine plus page with a folded corner. Keep both parts.",
-    "Do not cheer. Do not hype. Prim is infrastructure."
+    "Use logo.png on Drive, Applets, Workbook, Viewers, Together, Docs. Use logo-tight.png on Desktop chrome.",
+    "Do not cheer. Do not hype. Prim is infrastructure.",
+    "Do not copy Eidos house brass/cream doctrine into this pack.",
+    "Secrets, Approvals, and Drive-as-sync are provisional. Mark them. Do not cement.",
+    "If you mention Desktop chrome, three doors only: Viewer, Connectors, Chat. Viewer is a surface, not a connector."
   ],
   "typefaces": [
     {
@@ -93,23 +481,84 @@
       ]
     }
   ],
-  "type_note": "Prim prefers Instrument Sans + IBM Plex Mono on the web. Both are OFL and shipped in-pack. kit.css @font-face loads these files; do not substitute Space Grotesk or Inter unless this pack says so.",
+  "type_note": "Prim prefers Instrument Sans + IBM Plex Mono on the web. Both are OFL and shipped in-pack. kit.css @font-face loads these files; do not substitute Space Grotesk or Inter unless this pack says so. Display headlines on prims.sh use weight 500, letter-spacing about -0.04em, era size clamp(2.4rem, 6vw, 4.2rem). Kickers are IBM Plex Mono, uppercase, gold.",
   "voice": {
     "attributes": [
       "Precise",
       "calm",
       "absolute without volume"
     ],
+    "source": "https://prims.sh/",
     "do": [
       "Name the file. Name the view.",
       "Prefer one sentence that holds.",
-      "Speak as infrastructure, not a launch."
+      "Speak as infrastructure, not a launch.",
+      "If it needs a long explanation, it has not landed yet.",
+      "Profile names belong in specs. Everyday speech stays on Prim."
     ],
     "dont": [
       "Hype.",
       "Consumer-app cheerfulness.",
       "Eidos company doctrine or the house brass/cream story.",
-      "Cold blue #6c8aff."
+      "Cold blue #6c8aff.",
+      "Rewrite the homepage sayings into campaign lines."
+    ],
+    "sayings": [
+      "Send me the prim.",
+      "Don’t send the spreadsheet — just send the prim.",
+      "An AI session itself is a type of Prim.",
+      "Store the concept. Generate the files."
+    ],
+    "sayings_also": [
+      "The primitive unit of knowledge and memory for AI.",
+      "PDFs are the feather. Prims are the press.",
+      "The source of truth. Everything else is a view."
+    ],
+    "enterprise_love": [
+      {
+        "name": "Time capsules",
+        "line": "The work survives the person, the session, and the vendor. Open it in ten years. It’s still the Prim."
+      },
+      {
+        "name": "Shareable",
+        "line": "One file. Desk to desk, agent to agent, counsel to the board. You send the prim — not a zip of conflicting sheets."
+      },
+      {
+        "name": "Company property",
+        "line": "The knowledge is the firm’s. Not trapped in someone’s laptop, a chat log, or a tool that walks out the door."
+      }
+    ],
+    "ai_love": [
+      {
+        "name": "They can read it",
+        "line": "No scraping a deck. No guessing which tab is the source of truth. The file is native — agents reason over it without a translation layer."
+      },
+      {
+        "name": "They can trust it",
+        "line": "Claims carry evidence, hashes, and provenance. Validation is fail-closed. An agent doesn’t have to hope the spreadsheet is right."
+      },
+      {
+        "name": "They can continue it",
+        "line": "A session is a Prim. The next agent picks up the same file. Work doesn’t die when the window closes."
+      }
+    ],
+    "packaging": [
+      {
+        "name": "Directory pack",
+        "line": "Canonical source of truth — git, editing, validation."
+      },
+      {
+        "name": ".prim.zip",
+        "line": "Primary interchange. Attach this when you say send me the prim."
+      },
+      {
+        "name": ".prim.tar.gz",
+        "line": "Allowed. Unix and agent workflows."
+      },
+      {
+        "name": ".prim",
+        "line": "Reserved branded container. Zip under the hood."
+      }
     ]
   },
   "modes": [
@@ -144,12 +593,78 @@
         "default"
       ],
       "dir": "blocks/page-hero"
+    },
+    {
+      "id": "block:site-nav",
+      "name": "SiteNav",
+      "when": "Shared prims.sh product nav. One row of family surfaces.",
+      "refuses": [
+        "hamburger marketing mega-menu",
+        "desktop.prims.sh as a host",
+        "Eidos house links in the Prim family bar"
+      ],
+      "states": [
+        "default",
+        "current"
+      ],
+      "dir": "blocks/site-nav"
+    },
+    {
+      "id": "block:era-headline",
+      "name": "EraHeadline",
+      "when": "Display title on a prims.sh product page. Mono gold kicker, then one era-size h1.",
+      "refuses": [
+        "two H1s",
+        "gradient mesh",
+        "hero subcopy with three clauses of hype",
+        "Eidos tridot beside the title"
+      ],
+      "states": [
+        "default"
+      ],
+      "dir": "blocks/era-headline"
+    },
+    {
+      "id": "block:source-list",
+      "name": "SourceList",
+      "when": "Evidence / citation list. Numeral, short label, source line.",
+      "refuses": [
+        "testimonial carousel",
+        "star ratings",
+        "unsourced statistic as decoration"
+      ],
+      "states": [
+        "default"
+      ],
+      "dir": "blocks/source-list"
+    },
+    {
+      "id": "block:product-card",
+      "name": "ProductCard",
+      "when": "One family surface. Mono gold tag, name, one-line job, live URL.",
+      "refuses": [
+        "SaaS three-up feature grid with icons",
+        "star ratings",
+        "desktop.prims.sh",
+        "cementing Secrets / Approvals / Drive-as-sync as CHARTER locks"
+      ],
+      "states": [
+        "default",
+        "provisional"
+      ],
+      "dir": "blocks/product-card"
     }
   ],
   "deprecated": {
     "hex": [
       "#6c8aff"
     ],
-    "note": "Eidos cold blue is not Prim. Do not import it. Prim gold is #e8c547."
+    "hosts": [
+      "desktop.prims.sh"
+    ],
+    "marks": [
+      "Eidos tridot"
+    ],
+    "note": "Eidos cold blue is not Prim. Do not import it. Prim gold is #e8c547. Never mint prims.brand. Never use the Eidos tridot for Prim."
   }
 }

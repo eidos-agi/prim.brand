@@ -1,0 +1,13 @@
+{
+  "id": "block:product-card",
+  "name": "ProductCard",
+  "when": "One family surface. Mono gold tag, name, one-line job, live URL. Used to list Desktop, Drive, Applets, and the rest of the nav without inventing a new card system.",
+  "refuses": [
+    "SaaS three-up feature grid with icons",
+    "star ratings",
+    "desktop.prims.sh",
+    "cementing Secrets / Approvals / Drive-as-sync as CHARTER locks"
+  ],
+  "states": ["default", "provisional"],
+  "implementation": { "html": "block.html", "css": "block.css" }
+}

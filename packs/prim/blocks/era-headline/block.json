@@ -1,0 +1,13 @@
+{
+  "id": "block:era-headline",
+  "name": "EraHeadline",
+  "when": "Display title on a prims.sh product page. Mono gold kicker, then one era-size h1. Matches Desktop, Drive, Applets, Together, Process.",
+  "refuses": [
+    "two H1s",
+    "gradient mesh",
+    "hero subcopy with three clauses of hype",
+    "Eidos tridot beside the title"
+  ],
+  "states": ["default"],
+  "implementation": { "html": "block.html", "css": "block.css" }
+}
