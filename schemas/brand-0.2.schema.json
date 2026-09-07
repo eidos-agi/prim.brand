@@ -1,0 +1,1703 @@
+{
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "minLength": 1
+    },
+    "profile": {
+      "const": "brand"
+    },
+    "brand_version": {
+      "const": "0.2.0"
+    },
+    "identity_version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[A-Za-z0-9.-]+)?$"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "enum": [
+        "draft",
+        "active",
+        "deprecated"
+      ]
+    },
+    "capabilities": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+      },
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "required_capabilities": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+      },
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "assets": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/asset"
+      },
+      "minItems": 0
+    },
+    "rules": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/rule"
+      },
+      "minItems": 0
+    },
+    "recipes": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/recipe"
+      },
+      "minItems": 0
+    },
+    "visual": {
+      "type": "object",
+      "properties": {
+        "primary_asset": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+        },
+        "usage": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0
+        }
+      },
+      "required": [
+        "primary_asset",
+        "usage"
+      ],
+      "additionalProperties": false
+    },
+    "tokens": {
+      "type": "object",
+      "properties": {
+        "version": {
+          "const": "2025.10"
+        },
+        "path": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))[^\\\\\\x00:%?#]+$"
+        },
+        "resolver": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))[^\\\\\\x00:%?#]+$"
+        },
+        "modes": {
+          "type": "object",
+          "minProperties": 1,
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "inputs": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "selector": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "inputs",
+              "selector"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "css": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))[^\\\\\\x00:%?#]+$"
+        },
+        "css_mapping": {
+          "type": "object",
+          "minProperties": 1,
+          "propertyNames": {
+            "pattern": "^--[a-zA-Z][a-zA-Z0-9_-]*$"
+          },
+          "additionalProperties": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "required": [
+        "version",
+        "path",
+        "modes",
+        "css",
+        "css_mapping"
+      ],
+      "additionalProperties": false
+    },
+    "typography": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/typeface"
+      },
+      "minItems": 1
+    },
+    "verbal": {
+      "type": "object",
+      "properties": {
+        "positioning": {
+          "type": "string",
+          "minLength": 1
+        },
+        "tone": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1
+        },
+        "preferred": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0
+        },
+        "prohibited": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0
+        },
+        "claims": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+              },
+              "text": {
+                "type": "string",
+                "minLength": 1
+              },
+              "status": {
+                "enum": [
+                  "proposed",
+                  "approved",
+                  "rejected"
+                ]
+              },
+              "evidence": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))[^\\\\\\x00:%?#]+$"
+              }
+            },
+            "required": [
+              "id",
+              "text",
+              "status"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 0
+        }
+      },
+      "required": [
+        "positioning",
+        "tone",
+        "preferred",
+        "prohibited",
+        "claims"
+      ],
+      "additionalProperties": false
+    },
+    "templates": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/template"
+      },
+      "minItems": 1
+    },
+    "motion": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/motion"
+      },
+      "minItems": 1
+    },
+    "sound": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/sound"
+      },
+      "minItems": 1
+    },
+    "localization": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/localization"
+      },
+      "minItems": 1
+    },
+    "relationships": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/relationship"
+      },
+      "minItems": 1
+    },
+    "approvals": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))[^\\\\\\x00:%?#]+$"
+        }
+      },
+      "required": [
+        "path"
+      ],
+      "additionalProperties": false
+    },
+    "deliverables": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+          },
+          "asset_id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "purpose": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "id",
+          "asset_id",
+          "required",
+          "purpose"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 0
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+          },
+          "kind": {
+            "enum": [
+              "render",
+              "test",
+              "fidelity",
+              "rights",
+              "accessibility"
+            ]
+          },
+          "path": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))[^\\\\\\x00:%?#]+$"
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "subjects": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+                },
+                "sha256": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{64}$"
+                }
+              },
+              "required": [
+                "id",
+                "sha256"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1
+          },
+          "status": {
+            "enum": [
+              "passed",
+              "failed",
+              "not-run"
+            ]
+          },
+          "method": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "id",
+          "kind",
+          "path",
+          "sha256",
+          "subjects",
+          "status",
+          "method"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 0
+    },
+    "extensions": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^[a-zA-Z0-9]+[.:][a-zA-Z0-9._:-]+$"
+      },
+      "additionalProperties": {
+        "type": "object"
+      }
+    }
+  },
+  "required": [
+    "profile",
+    "brand_version",
+    "identity_version",
+    "id",
+    "name",
+    "status",
+    "capabilities",
+    "required_capabilities",
+    "assets",
+    "rules",
+    "deliverables"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.prims.sh/brand/0.2.0/identity.schema.json",
+  "$defs": {
+    "asset": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+        },
+        "role": {
+          "enum": [
+            "master",
+            "derivative",
+            "reference",
+            "mockup",
+            "template",
+            "export",
+            "support"
+          ]
+        },
+        "purpose": {
+          "type": "string",
+          "minLength": 1
+        },
+        "media_type": {
+          "type": "string",
+          "minLength": 1
+        },
+        "representation": {
+          "enum": [
+            "vector",
+            "raster",
+            "mixed",
+            "document",
+            "audio",
+            "video",
+            "data"
+          ]
+        },
+        "availability": {
+          "enum": [
+            "present",
+            "external",
+            "planned",
+            "missing"
+          ]
+        },
+        "required": {
+          "type": "boolean"
+        },
+        "path": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))[^\\\\\\x00:%?#]+$"
+        },
+        "uri": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https://"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "width": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "height": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "view_box": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 4,
+          "maxItems": 4
+        },
+        "background": {
+          "enum": [
+            "transparent",
+            "dark",
+            "light",
+            "color",
+            "not-applicable",
+            "unknown"
+          ]
+        },
+        "editable": {
+          "enum": [
+            "none",
+            "geometry",
+            "text",
+            "layers",
+            "slides",
+            "unknown"
+          ]
+        },
+        "approval": {
+          "enum": [
+            "unreviewed",
+            "candidate",
+            "approved",
+            "rejected",
+            "superseded"
+          ]
+        },
+        "rights": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "enum": [
+                "declared",
+                "unknown",
+                "restricted"
+              ]
+            },
+            "license": {
+              "type": "string",
+              "minLength": 1
+            },
+            "evidence": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))[^\\\\\\x00:%?#]+$"
+            },
+            "redistribution": {
+              "enum": [
+                "allowed",
+                "forbidden",
+                "unknown"
+              ]
+            }
+          },
+          "required": [
+            "status",
+            "redistribution"
+          ],
+          "additionalProperties": false
+        },
+        "derived_from": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              }
+            },
+            "required": [
+              "id",
+              "sha256"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 0
+        },
+        "recipe": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+        },
+        "notes": {
+          "type": "string",
+          "minLength": 1
+        },
+        "constraints": {
+          "type": "object",
+          "properties": {
+            "backgrounds": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "minItems": 0
+            },
+            "min_px": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "clear_space": {
+              "type": "string",
+              "minLength": 1
+            },
+            "allowed_transforms": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "minItems": 0
+            },
+            "forbidden_transforms": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "minItems": 0
+            }
+          },
+          "required": [],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "role",
+        "purpose",
+        "media_type",
+        "representation",
+        "availability",
+        "required",
+        "background",
+        "editable",
+        "approval",
+        "rights"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "availability": {
+                "const": "present"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "path",
+              "sha256"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "availability": {
+                "const": "external"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "uri",
+              "sha256"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "role": {
+                "enum": [
+                  "derivative",
+                  "export"
+                ]
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "derived_from",
+              "recipe"
+            ],
+            "properties": {
+              "derived_from": {
+                "minItems": 1
+              }
+            }
+          }
+        }
+      ]
+    },
+    "typeface": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+        },
+        "family": {
+          "type": "string",
+          "minLength": 1
+        },
+        "strategy": {
+          "enum": [
+            "bundled",
+            "reference",
+            "system",
+            "outlined"
+          ]
+        },
+        "roles": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1
+        },
+        "asset_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+          },
+          "minItems": 0
+        },
+        "license": {
+          "type": "string",
+          "minLength": 1
+        },
+        "license_path": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))[^\\\\\\x00:%?#]+$"
+        },
+        "uri": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https://"
+        },
+        "fallbacks": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0
+        },
+        "notes": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "id",
+        "family",
+        "strategy",
+        "roles"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "strategy": {
+                "const": "bundled"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "asset_ids",
+              "license",
+              "license_path"
+            ],
+            "properties": {
+              "asset_ids": {
+                "minItems": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "strategy": {
+                "const": "reference"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "uri",
+              "fallbacks"
+            ],
+            "properties": {
+              "fallbacks": {
+                "minItems": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "strategy": {
+                "const": "system"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "fallbacks"
+            ],
+            "properties": {
+              "fallbacks": {
+                "minItems": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "strategy": {
+                "const": "outlined"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "asset_ids"
+            ],
+            "properties": {
+              "asset_ids": {
+                "minItems": 1
+              }
+            }
+          }
+        }
+      ]
+    },
+    "template": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "when": {
+          "type": "string",
+          "minLength": 1
+        },
+        "refuses": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0
+        },
+        "states": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1
+        },
+        "slots": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+              },
+              "required": {
+                "type": "boolean"
+              },
+              "kind": {
+                "enum": [
+                  "text",
+                  "asset",
+                  "list"
+                ]
+              }
+            },
+            "required": [
+              "name",
+              "required",
+              "kind"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 0
+        },
+        "implementation": {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "enum": [
+                "html-css",
+                "external"
+              ]
+            },
+            "html": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))[^\\\\\\x00:%?#]+$"
+            },
+            "css": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))[^\\\\\\x00:%?#]+$"
+            },
+            "uri": {
+              "type": "string",
+              "format": "uri",
+              "pattern": "^https://"
+            },
+            "sha256": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            }
+          },
+          "required": [
+            "kind"
+          ],
+          "additionalProperties": false,
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "kind": {
+                    "const": "html-css"
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "html",
+                  "css"
+                ]
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "kind": {
+                    "const": "external"
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "uri",
+                  "sha256"
+                ]
+              }
+            }
+          ]
+        },
+        "preview_asset": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "when",
+        "refuses",
+        "states",
+        "slots",
+        "implementation"
+      ],
+      "additionalProperties": false
+    },
+    "recipe": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+        },
+        "operation": {
+          "enum": [
+            "copy",
+            "resize",
+            "rasterize",
+            "reconstruct",
+            "generate",
+            "convert",
+            "compose"
+          ]
+        },
+        "tool": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "parameters": {
+          "type": "object"
+        },
+        "deterministic": {
+          "type": "boolean"
+        },
+        "requires_review": {
+          "type": "boolean"
+        },
+        "allowed_by": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+          },
+          "minItems": 0
+        }
+      },
+      "required": [
+        "id",
+        "operation",
+        "tool",
+        "version",
+        "parameters",
+        "deterministic",
+        "requires_review"
+      ],
+      "additionalProperties": false
+    },
+    "motion": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+        },
+        "asset_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+        },
+        "duration_ms": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "iterations": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 10
+        },
+        "reduced_motion_asset": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+        },
+        "purpose": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "id",
+        "asset_id",
+        "duration_ms",
+        "iterations",
+        "reduced_motion_asset",
+        "purpose"
+      ],
+      "additionalProperties": false
+    },
+    "sound": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+        },
+        "asset_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+        },
+        "duration_ms": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "silent_alternative": {
+          "type": "string",
+          "minLength": 1
+        },
+        "autoplay": {
+          "const": false
+        },
+        "purpose": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "id",
+        "asset_id",
+        "duration_ms",
+        "silent_alternative",
+        "autoplay",
+        "purpose"
+      ],
+      "additionalProperties": false
+    },
+    "localization": {
+      "type": "object",
+      "properties": {
+        "locale": {
+          "type": "string",
+          "minLength": 1
+        },
+        "direction": {
+          "enum": [
+            "ltr",
+            "rtl"
+          ]
+        },
+        "wordmark_asset": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+        },
+        "typeface_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+          },
+          "minItems": 0
+        },
+        "fallback_locale": {
+          "type": "string",
+          "minLength": 1
+        },
+        "copy": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "required": [
+        "locale",
+        "direction",
+        "typeface_ids",
+        "copy"
+      ],
+      "additionalProperties": false
+    },
+    "relationship": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+        },
+        "kind": {
+          "enum": [
+            "parent",
+            "sub-brand",
+            "endorsement",
+            "co-brand",
+            "composition"
+          ]
+        },
+        "brand_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "identity_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "uri": {
+          "type": "string",
+          "format": "uri"
+        },
+        "allowed_overrides": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0
+        },
+        "notes": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "id",
+        "kind",
+        "brand_id",
+        "version",
+        "identity_sha256",
+        "uri",
+        "allowed_overrides"
+      ],
+      "additionalProperties": false
+    },
+    "rule": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+        },
+        "kind": {
+          "enum": [
+            "forbidden-color",
+            "contrast",
+            "prohibited-term",
+            "asset-usage"
+          ]
+        },
+        "severity": {
+          "enum": [
+            "error",
+            "warning"
+          ]
+        },
+        "paths": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))[^\\\\\\x00:%?#]+$"
+          },
+          "minItems": 0
+        },
+        "value": {
+          "type": "string",
+          "minLength": 1
+        },
+        "foreground": {
+          "type": "string",
+          "minLength": 1
+        },
+        "background": {
+          "type": "string",
+          "minLength": 1
+        },
+        "minimum": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "asset_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+        },
+        "notes": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "id",
+        "kind",
+        "severity"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "enum": [
+                  "forbidden-color",
+                  "prohibited-term"
+                ]
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "paths",
+              "value"
+            ],
+            "properties": {
+              "paths": {
+                "minItems": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "contrast"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "foreground",
+              "background",
+              "minimum"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "asset-usage"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "asset_id",
+              "notes"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "capabilities": {
+            "contains": {
+              "const": "visual"
+            }
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "visual"
+        ]
+      }
+    },
+    {
+      "if": {
+        "required": [
+          "visual"
+        ]
+      },
+      "then": {
+        "properties": {
+          "capabilities": {
+            "contains": {
+              "const": "visual"
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "capabilities": {
+            "contains": {
+              "const": "tokens"
+            }
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "tokens"
+        ]
+      }
+    },
+    {
+      "if": {
+        "required": [
+          "tokens"
+        ]
+      },
+      "then": {
+        "properties": {
+          "capabilities": {
+            "contains": {
+              "const": "tokens"
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "capabilities": {
+            "contains": {
+              "const": "typography"
+            }
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "typography"
+        ]
+      }
+    },
+    {
+      "if": {
+        "required": [
+          "typography"
+        ]
+      },
+      "then": {
+        "properties": {
+          "capabilities": {
+            "contains": {
+              "const": "typography"
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "capabilities": {
+            "contains": {
+              "const": "verbal"
+            }
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "verbal"
+        ]
+      }
+    },
+    {
+      "if": {
+        "required": [
+          "verbal"
+        ]
+      },
+      "then": {
+        "properties": {
+          "capabilities": {
+            "contains": {
+              "const": "verbal"
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "capabilities": {
+            "contains": {
+              "const": "templates"
+            }
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "templates"
+        ]
+      }
+    },
+    {
+      "if": {
+        "required": [
+          "templates"
+        ]
+      },
+      "then": {
+        "properties": {
+          "capabilities": {
+            "contains": {
+              "const": "templates"
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "capabilities": {
+            "contains": {
+              "const": "motion"
+            }
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "motion"
+        ]
+      }
+    },
+    {
+      "if": {
+        "required": [
+          "motion"
+        ]
+      },
+      "then": {
+        "properties": {
+          "capabilities": {
+            "contains": {
+              "const": "motion"
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "capabilities": {
+            "contains": {
+              "const": "sound"
+            }
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "sound"
+        ]
+      }
+    },
+    {
+      "if": {
+        "required": [
+          "sound"
+        ]
+      },
+      "then": {
+        "properties": {
+          "capabilities": {
+            "contains": {
+              "const": "sound"
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "capabilities": {
+            "contains": {
+              "const": "localization"
+            }
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "localization"
+        ]
+      }
+    },
+    {
+      "if": {
+        "required": [
+          "localization"
+        ]
+      },
+      "then": {
+        "properties": {
+          "capabilities": {
+            "contains": {
+              "const": "localization"
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "capabilities": {
+            "contains": {
+              "const": "relationships"
+            }
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "relationships"
+        ]
+      }
+    },
+    {
+      "if": {
+        "required": [
+          "relationships"
+        ]
+      },
+      "then": {
+        "properties": {
+          "capabilities": {
+            "contains": {
+              "const": "relationships"
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "capabilities": {
+            "contains": {
+              "const": "lineage"
+            }
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "recipes"
+        ]
+      }
+    },
+    {
+      "if": {
+        "required": [
+          "recipes"
+        ]
+      },
+      "then": {
+        "properties": {
+          "capabilities": {
+            "contains": {
+              "const": "lineage"
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "capabilities": {
+            "contains": {
+              "const": "approvals"
+            }
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "approvals"
+        ]
+      }
+    },
+    {
+      "if": {
+        "required": [
+          "approvals"
+        ]
+      },
+      "then": {
+        "properties": {
+          "capabilities": {
+            "contains": {
+              "const": "approvals"
+            }
+          }
+        }
+      }
+    }
+  ]
+}

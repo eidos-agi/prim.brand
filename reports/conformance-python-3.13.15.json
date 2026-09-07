@@ -1,0 +1,140 @@
+{
+  "python": "3.13.15",
+  "tests_run": 111,
+  "tests_passed": true,
+  "fixtures": {
+    "minimal": {
+      "passed": true,
+      "checks": 22,
+      "ready_for_use": false
+    },
+    "comprehensive": {
+      "passed": true,
+      "checks": 47,
+      "ready_for_use": false
+    }
+  },
+  "legacy": {
+    "eidos": {
+      "passed": true,
+      "stdout": "OK    eidos: 4 marks, 4 fonts, 3 blocks",
+      "files_unchanged": true
+    },
+    "prim": {
+      "passed": true,
+      "stdout": "OK    prim: 4 marks, 3 fonts, 2 blocks",
+      "files_unchanged": true
+    }
+  },
+  "migration": {
+    "eidos": {
+      "passed": true,
+      "actions": [
+        {
+          "kind": "typography",
+          "id": "type:space-grotesk",
+          "action": "system-fallback",
+          "review_required": true
+        },
+        {
+          "kind": "block",
+          "id": "block:lede",
+          "action": "preserved-as-migration-reference",
+          "review_required": true
+        },
+        {
+          "kind": "block",
+          "id": "block:page-hero",
+          "action": "preserved-as-migration-reference",
+          "review_required": true
+        },
+        {
+          "kind": "block",
+          "id": "block:evidence-card",
+          "action": "preserved-as-migration-reference",
+          "review_required": true
+        },
+        {
+          "kind": "tokens",
+          "action": "converted-values-and-new-CSS-map",
+          "review_required": true
+        },
+        {
+          "kind": "source",
+          "action": "archive-full-legacy-identity-as-data",
+          "review_required": false
+        }
+      ],
+      "source_unchanged": true
+    },
+    "prim": {
+      "passed": true,
+      "actions": [
+        {
+          "kind": "typography",
+          "id": "type:instrument-sans",
+          "action": "system-fallback",
+          "review_required": true
+        },
+        {
+          "kind": "typography",
+          "id": "type:ibm-plex-mono",
+          "action": "system-fallback",
+          "review_required": true
+        },
+        {
+          "kind": "block",
+          "id": "block:lede",
+          "action": "preserved-as-migration-reference",
+          "review_required": true
+        },
+        {
+          "kind": "block",
+          "id": "block:page-hero",
+          "action": "preserved-as-migration-reference",
+          "review_required": true
+        },
+        {
+          "kind": "tokens",
+          "action": "converted-values-and-new-CSS-map",
+          "review_required": true
+        },
+        {
+          "kind": "source",
+          "action": "archive-full-legacy-identity-as-data",
+          "review_required": false
+        }
+      ],
+      "source_unchanged": true
+    }
+  },
+  "source_sha256": {
+    "brandkit/__init__.py": "1dd4f5d9dae879f09df073072a764e5562d5766d606bd991814e3649b2c91a53",
+    "brandkit/approval.py": "ebd412f3bc8b1018cceeaba2271e38b9266fbd9872ad0093ab54990fcdb8fde2",
+    "brandkit/asset_checks.py": "22d5db6d5dc092e8b7403fd1470ce7f23f62eea6a09e9e7734bd5b2c50e86ff5",
+    "brandkit/cli.py": "1e69337f20a830234c17c957af6b3cd02938ef5e61f45349a11db3a4a7aad6b9",
+    "brandkit/export.py": "e47c71239197a095eab79dad9a5348fd8dc4a7dca3f09516690a47ed74f67f42",
+    "brandkit/io.py": "0cfeb2bd39bd1ec36279c0ab7983c9629f3619a6ca835490f0ee271be3b18d8e",
+    "brandkit/mcp.py": "24e4b40225c13ba3ca7f178fd396b3217179abd70e2c898949f7c56f55c9a58f",
+    "brandkit/migration.py": "e1151a295c73f755fec1fe89eb5dcb064bcbddb56883b3c384b6c5b8bad08e46",
+    "brandkit/operations.py": "e403580f6dcca43efb7cea4b1ec848e4eb0ef6c5602ecb4bb4f03280da54976b",
+    "brandkit/report.py": "4c1a4e1e1fdd129e88fec810ee228add353461dd624efa86ed1fe0ec8b862bc8",
+    "brandkit/schema.py": "e5598995da73c3cdf461bfe492000855383da544a3224c470179cb4f0591a9d0",
+    "brandkit/token_common.py": "69638b79c25949b7188d5feff306d6b34bd2c371bddef2c759d3543ad7f73e3c",
+    "brandkit/token_format.py": "774a298e20833e389d99cf93f9a4cb553cca387f3393f19f17a8209d2c2fef05",
+    "brandkit/token_resolver.py": "0d387e5d3906c65e54dfd4878f96351fbcd8aabc589e4f3e8fa9509dde6ce2be",
+    "brandkit/token_types.py": "6bcaffddc3b7a0ed9c7eaed7a8eb5a7d8e7fa635128d2c92bcb3aeb724292a3a",
+    "brandkit/tokens.py": "dfdc78bd2a1d02bbada010a4ab7e35c7b28bced729dd28a8e8359d6e1d88416a",
+    "brandkit/validate.py": "198c8f2fb62e799bda63642219603696af402de5b5c6fa7160d41d177840cd78",
+    "tools/brand.py": "0710fe9773011512dd65cce8d1c8243d85d4d1853c485deb23f57aa7dd5d09a6",
+    "tools/mcp.py": "dfe4551687d7904e1a6cfd70cb656fadcda8c882957e48b3e75a7a3a588c9b22",
+    "tests/test_brand.py": "05792d8c177389163f1b65a9e68252603e2a6e28edeb0a08cd7a3f3dacebe707",
+    "tests/test_export.py": "23e4ec730ca61ee2900802da631d74af3845f845ccd57902ff66e4ef7f932d3c",
+    "tests/test_hardening.py": "8ee47680e3aa740f247539dc8b968e44bf4710c028e8d9ef269dbf93437635cf",
+    "tests/test_mcp.py": "833c04dc60b81f670f5e9081314f84b26e2c55a6e8245e479dee124298af8c1f",
+    "scripts/build_examples.py": "bf8596d256d79f9841461c50571bc3df6a55185b7532238f412a7b5e940219b1",
+    "scripts/ci_verify.py": "4064e0bb945f46695f77287d8cbe2d2ba0e75bf376080d8dd93295c89e3547b1",
+    "scripts/validate.py": "c2c4f275e4bab6a5a7bfb9dbaebd87a9e5ea087eaf2cb75bed8b08ec52ebb187"
+  },
+  "deterministic_bundle": true
+}

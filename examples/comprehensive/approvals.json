@@ -1,0 +1,23 @@
+{
+  "version": "0.2.0",
+  "decisions": [
+    {
+      "id": "decision:example",
+      "principal": "example-owner",
+      "at": "2026-01-01T00:00:00Z",
+      "decision": "approve",
+      "scope": "reference",
+      "subjects": [
+        {
+          "asset_id": "mark:primary",
+          "sha256": "92acd422600a0117bfc252da082c037625a00ac5b1f269075dc00b3461b6a6ca",
+          "record_sha256": "ff2e7560af9ef89bb91e72ad759dbe66253ee64fc81d6d33398ba6086e967e97"
+        }
+      ],
+      "evidence": {
+        "path": "evidence/decision.md",
+        "sha256": "3a15a7734f10fa0c837402b199f02e51d7929fdfba1a3dcc5f1cea1595979d06"
+      }
+    }
+  ]
+}

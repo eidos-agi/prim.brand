@@ -1,0 +1,56 @@
+{
+  "type": "object",
+  "properties": {
+    "version": {
+      "const": "0.2.0"
+    },
+    "trusted_decisions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "principal": {
+            "type": "string",
+            "minLength": 1
+          },
+          "scopes": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "reference",
+                "asset",
+                "release"
+              ]
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "sha256",
+          "principal",
+          "scopes"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 0
+    },
+    "revoked": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-f0-9]{64}$"
+      },
+      "minItems": 0
+    }
+  },
+  "required": [
+    "version",
+    "trusted_decisions",
+    "revoked"
+  ],
+  "additionalProperties": false
+}

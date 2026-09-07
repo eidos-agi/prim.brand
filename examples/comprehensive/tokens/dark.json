@@ -1,0 +1,10 @@
+{
+  "text": {
+    "$type": "color",
+    "$value": "{palette.paper}"
+  },
+  "surface": {
+    "$type": "color",
+    "$value": "{palette.ink}"
+  }
+}
