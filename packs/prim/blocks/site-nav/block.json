@@ -1,0 +1,12 @@
+{
+  "id": "block:site-nav",
+  "name": "SiteNav",
+  "when": "Shared prims.sh product nav. One row of family surfaces. Used on every live page via /site-nav.js.",
+  "refuses": [
+    "hamburger marketing mega-menu",
+    "desktop.prims.sh as a host",
+    "Eidos house links in the Prim family bar"
+  ],
+  "states": ["default", "current"],
+  "implementation": { "html": "block.html", "css": "block.css" }
+}

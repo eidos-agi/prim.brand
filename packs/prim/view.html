@@ -1,32 +1,67 @@
 <!doctype html>
-<html lang="en" data-palette="ink">
+<html lang="en" data-palette="paper">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Prims · brand kit</title>
+<title>Prims · brand kit 0.2.0</title>
 <link rel="stylesheet" href="kit.css">
 <link rel="stylesheet" href="blocks/lede/block.css">
 <link rel="stylesheet" href="blocks/page-hero/block.css">
+<link rel="stylesheet" href="blocks/site-nav/block.css">
+<link rel="stylesheet" href="blocks/era-headline/block.css">
+<link rel="stylesheet" href="blocks/source-list/block.css">
+<link rel="stylesheet" href="blocks/product-card/block.css">
 <style>
-  .bar { display:flex; justify-content:space-between; align-items:center; padding:0.75rem 1.25rem; border-bottom:1px solid var(--line); font-size:0.8rem; font-family:var(--mono); color:var(--ink-soft); }
+  .bar { display:flex; justify-content:space-between; align-items:center; gap:1rem; flex-wrap:wrap; padding:0.75rem 1.25rem; border-bottom:1px solid var(--line); font-size:0.8rem; font-family:var(--mono); color:var(--ink-soft); }
   .bar button { background:var(--surface); color:var(--ink); border:1px solid var(--line); border-radius:var(--radius); padding:0.3rem 0.6rem; font: inherit; cursor:pointer; }
   .bar button[aria-pressed="true"] { background:var(--accent); color:var(--accent-ink); border-color:var(--accent); }
-  main { max-width: 52rem; margin: 0 auto; padding: 2.5rem 1.25rem 4rem; display:grid; gap:2.5rem; }
+  main { max-width: 64rem; margin: 0 auto; padding: 2.5rem 1.25rem 5rem; display:grid; gap:3.25rem; }
   .chips { display:flex; gap:0.5rem; flex-wrap:wrap; }
   .chip { width:4.5rem; height:4.5rem; border-radius:var(--radius); border:1px solid var(--line); display:flex; align-items:flex-end; padding:0.35rem; font-family:var(--mono); font-size:0.65rem; }
-  .marks { display:flex; gap:1.5rem; align-items:center; }
-  .marks figure { margin:0; text-align:center; font-family:var(--mono); font-size:0.7rem; color:var(--ink-soft); }
+  .marks { display:flex; gap:1.5rem; align-items:flex-end; flex-wrap:wrap; }
+  .marks figure, .lockups figure { margin:0; text-align:center; font-family:var(--mono); font-size:0.7rem; color:var(--ink-soft); }
   .marks img { width:72px; height:72px; }
-  .on-ink { background:var(--bg); padding:1rem; border-radius:var(--radius); }
-  html[data-palette="paper"] .on-ink, html[data-palette="system"] .on-ink { background:#0c0c0e; }
+  .on-ink { background:#0c0c0e; padding:1rem; border-radius:var(--radius); }
   .on-paper { background:#f4f3ef; padding:1rem; border-radius:var(--radius); }
-  h2 { font-size:0.8rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-soft); font-weight:500; margin:0 0 0.75rem; font-family:var(--mono); }
+  h2 { font-size:0.75rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-soft); font-weight:500; margin:0 0 0.85rem; font-family:var(--mono); }
   .tag { color:var(--ink-soft); font-family:var(--mono); font-size:0.85rem; margin:0.75rem 0 0; }
+  .say { list-style:none; margin:0; padding:0; }
+  .say li { display:flex; gap:1.25rem; border-top:1px solid var(--line); padding:1rem 0; }
+  .say li:last-child { border-bottom:1px solid var(--line); }
+  .say .num { width:2rem; font-family:var(--mono); font-size:0.85rem; color:var(--subtle); }
+  .family { display:grid; gap:1rem; grid-template-columns:repeat(auto-fit, minmax(16.5rem, 1fr)); }
+  table.nouns { width:100%; border-collapse:collapse; font-size:0.92rem; }
+  table.nouns th, table.nouns td { text-align:left; vertical-align:top; padding:0.7rem 0.65rem; border-bottom:1px solid var(--line); }
+  table.nouns th { font-family:var(--mono); font-size:0.7rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-soft); font-weight:500; }
+  table.nouns .term { font-weight:500; }
+  table.nouns .dont { color:var(--ink-soft); }
+  .lockups { display:grid; gap:1.25rem; grid-template-columns:repeat(auto-fit, minmax(14rem, 1fr)); align-items:end; }
+  .lockups img.word { height:36px; width:auto; }
+  .lockups img.og { width:100%; height:auto; border:1px solid var(--line); }
+  .lockups img.icon { width:96px; height:96px; }
+  .rules { display:grid; gap:0.75rem; grid-template-columns:repeat(auto-fit, minmax(16rem, 1fr)); }
+  .rule { border:1px solid var(--line); border-radius:var(--radius); padding:1rem 1.1rem; background:var(--raised); }
+  .rule strong { display:block; margin-bottom:0.35rem; }
+  .rule span, .rule li { font-size:0.9rem; color:var(--ink-soft); line-height:1.45; }
+  .rule ul { margin:0.4rem 0 0; padding-left:1.1rem; }
+  .love { display:grid; gap:1px; background:var(--line); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; }
+  @media (min-width:720px) { .love { grid-template-columns:1fr 1fr 1fr; } }
+  .love article { background:var(--bg); padding:1.15rem 1.2rem; }
+  .love h3 { margin:0 0 0.4rem; font-size:1rem; font-weight:500; }
+  .love p { margin:0; font-size:0.9rem; line-height:1.5; color:var(--ink-soft); }
+  .pack { border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; }
+  .pack div { display:grid; gap:0.35rem; padding:0.95rem 1.2rem; border-bottom:1px solid var(--line); }
+  .pack div:last-child { border:0; }
+  @media (min-width:640px) { .pack div { grid-template-columns:12rem 1fr; } }
+  .mono { font-family:var(--mono); font-size:0.85rem; }
+  .note { color:var(--ink-soft); font-size:0.92rem; line-height:1.5; max-width:42rem; }
+  .ids { font-family:var(--mono); font-size:0.8rem; color:var(--ink-soft); display:grid; gap:0.35rem; }
+  .block-demo { border:1px solid var(--line); border-radius:var(--radius); padding:1.25rem; background:var(--raised); }
 </style>
 <div class="bar">
-  <span>packs/prim · projection of identity.json</span>
+  <span>packs/prim · 0.2.0 · projection of identity.json · not the store</span>
   <span>
-    <button type="button" data-p="paper">Paper</button>
-    <button type="button" data-p="ink" aria-pressed="true">Ink</button>
+    <button type="button" data-p="paper" aria-pressed="true">Paper</button>
+    <button type="button" data-p="ink">Ink</button>
     <button type="button" data-p="system">System</button>
   </span>
 </div>
@@ -37,16 +72,25 @@
       <h1>Prims<span class="stop">.</span></h1>
     </header>
     <p class="lede" style="margin-top:1rem">A file that stores information, and tools that interact with it.</p>
-    <p class="tag">The source of truth. Everything else is a view.</p>
+    <p class="tag">The primitive unit of knowledge and memory for AI.</p>
   </section>
+
   <section>
-    <h2>Mark</h2>
-    <div class="marks">
-      <figure class="on-ink"><img src="assets/logos/folio-gold.svg" alt="folio gold"><figcaption>gold on ink</figcaption></figure>
-      <figure class="on-paper"><img src="assets/logos/folio-ink.svg" alt="folio ink"><figcaption>ink on paper</figcaption></figure>
-      <figure class="on-ink"><img src="assets/logos/folio-cream.svg" alt="folio cream"><figcaption>cream on ink</figcaption></figure>
-    </div>
+    <h2>Site nav</h2>
+    <nav class="site-nav" aria-label="Site">
+      <a href="https://prims.sh/desktop/">Desktop</a>
+      <a href="https://prims.sh/drive/">Drive</a>
+      <a href="https://prims.sh/applets/">Applets</a>
+      <a href="https://prims.sh/workbook/">Workbook</a>
+      <a href="https://prims.sh/viewers/">Viewers</a>
+      <a href="https://prims.sh/together/">Together</a>
+      <a href="https://prims.sh/process/">Process</a>
+      <a href="https://prims.sh/docs/">Docs</a>
+      <a href="https://prims.sh/demo/">Demo</a>
+      <a href="https://registry.prims.sh/">Registry</a>
+    </nav>
   </section>
+
   <section>
     <h2>Color</h2>
     <div class="chips">
@@ -57,12 +101,281 @@
       <div class="chip" style="background:var(--line)">line</div>
       <div class="chip" style="background:var(--ink-soft);color:var(--bg)">muted</div>
     </div>
+    <p class="note" style="margin:0.85rem 0 0">Paper is the live web default. Gold is the only accent. Never the retired Eidos blue.</p>
   </section>
+
   <section>
     <h2>Type</h2>
-    <p style="font-size:2.44rem;font-weight:650;margin:0;letter-spacing:-0.02em">Instrument Sans</p>
-    <p style="margin:0.3rem 0 0">Body 400. Precise, calm. No hype.</p>
+    <p style="font-size:2.44rem;font-weight:500;margin:0;letter-spacing:-0.04em">Instrument Sans</p>
+    <p style="margin:0.3rem 0 0">Display 500. Body 400. Precise, calm. No hype.</p>
     <p style="font-family:var(--mono);font-size:0.9rem;color:var(--ink-soft);margin:0.75rem 0 0">IBM Plex Mono — send me the prim.</p>
+  </section>
+
+  <section>
+    <h2>How to say it</h2>
+    <p class="note">If it needs a long explanation, it has not landed yet. From prims.sh, not rewritten.</p>
+    <ol class="say">
+      <li><span class="num">01</span><span>Send me the prim.</span></li>
+      <li><span class="num">02</span><span>Don’t send the spreadsheet — just send the prim.</span></li>
+      <li><span class="num">03</span><span>An AI session itself is a type of Prim.</span></li>
+      <li><span class="num">04</span><span>Store the concept. Generate the files.</span></li>
+    </ol>
+    <p class="note" style="margin-top:1rem">Also used: PDFs are the feather. Prims are the press.</p>
+  </section>
+
+  <section>
+    <h2>Enterprises love Prims</h2>
+    <div class="love">
+      <article>
+        <h3>Time capsules</h3>
+        <p>The work survives the person, the session, and the vendor. Open it in ten years. It’s still the Prim.</p>
+      </article>
+      <article>
+        <h3>Shareable</h3>
+        <p>One file. Desk to desk, agent to agent, counsel to the board. You send the prim — not a zip of conflicting sheets.</p>
+      </article>
+      <article>
+        <h3>Company property</h3>
+        <p>The knowledge is the firm’s. Not trapped in someone’s laptop, a chat log, or a tool that walks out the door.</p>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <h2>AIs love Prims</h2>
+    <div class="love">
+      <article>
+        <h3>They can read it</h3>
+        <p>No scraping a deck. No guessing which tab is the source of truth. The file is native.</p>
+      </article>
+      <article>
+        <h3>They can trust it</h3>
+        <p>Claims carry evidence, hashes, and provenance. Validation is fail-closed.</p>
+      </article>
+      <article>
+        <h3>They can continue it</h3>
+        <p>A session is a Prim. The next agent picks up the same file.</p>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <h2>Packaging</h2>
+    <div class="pack">
+      <div><span class="mono">Directory pack</span><span class="note">Canonical source of truth — git, editing, validation.</span></div>
+      <div><span class="mono">.prim.zip</span><span class="note">Primary interchange. Attach this when you say send me the prim.</span></div>
+      <div><span class="mono">.prim.tar.gz</span><span class="note">Allowed. Unix and agent workflows.</span></div>
+      <div><span class="mono">.prim</span><span class="note">Reserved branded container. Zip under the hood.</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Nouns</h2>
+    <table class="nouns">
+      <thead>
+        <tr><th>Term</th><th>Kind</th><th>Use</th><th>Don’t</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="term">Prim</td><td>category / file</td><td>Singular pack. The file.</td><td class="dont">Not “a Prims.”</td></tr>
+        <tr><td class="term">Prims</td><td>product family</td><td>Tools around the file.</td><td class="dont">Not the singular file noun.</td></tr>
+        <tr><td class="term">Prims Desktop</td><td>app</td><td>prims.sh/desktop</td><td class="dont">Never desktop.prims.sh.</td></tr>
+        <tr><td class="term">Eidos AGI</td><td>company</td><td>packs/eidos</td><td class="dont">No tridot on Prim.</td></tr>
+        <tr><td class="term">Viewer</td><td>surface</td><td>One of three Desktop doors.</td><td class="dont">Not a connector.</td></tr>
+        <tr><td class="term">Connectors</td><td>Desktop door</td><td>Talks to a system.</td><td class="dont">Don’t hide a viewer here.</td></tr>
+        <tr><td class="term">Chat</td><td>Desktop door</td><td>ACP under the hood.</td><td class="dont">Harness stays out of chrome.</td></tr>
+        <tr><td class="term">Applet</td><td>composition</td><td>A bench you open.</td><td class="dont">Don’t mint prim.applet.</td></tr>
+        <tr><td class="term">Process</td><td>house procedure</td><td>Written down, it is a prim.</td><td class="dont">Not required on every file.</td></tr>
+        <tr><td class="term">Prim Secrets</td><td>provisional</td><td>Exploratory applet. Knox under the hood.</td><td class="dont">Not a CHARTER lock.</td></tr>
+        <tr><td class="term">Prim Approvals</td><td>provisional</td><td>Exploratory applet. Hancock under the hood.</td><td class="dont">Not a CHARTER lock.</td></tr>
+        <tr><td class="term">Drive sync</td><td>provisional</td><td>Lean on Desktop. Drive is the product.</td><td class="dont">Not Google Drive sync for Desktop.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>Product family</h2>
+    <p class="note">Live nav from prims.sh/site-nav.js. One-line jobs from the pages themselves.</p>
+    <div class="family">
+      <article class="product-card">
+        <p class="product-card-tag">Category</p>
+        <h3 class="product-card-name">Prim</h3>
+        <p class="product-card-job">The primitive unit of knowledge and memory for AI.</p>
+        <p class="product-card-url"><a href="https://prims.sh/">prims.sh</a></p>
+      </article>
+      <article class="product-card">
+        <p class="product-card-tag">App</p>
+        <h3 class="product-card-name">Prims Desktop</h3>
+        <p class="product-card-job">Personal Mac memory pack. Agents only see what you admit.</p>
+        <p class="product-card-url"><a href="https://prims.sh/desktop/">prims.sh/desktop</a></p>
+      </article>
+      <article class="product-card">
+        <p class="product-card-tag">Drive</p>
+        <h3 class="product-card-name">Prims Drive</h3>
+        <p class="product-card-job">Multi-org cloud drive for teams and agents. Packs live on the plane.</p>
+        <p class="product-card-url"><a href="https://prims.sh/drive/">prims.sh/drive</a></p>
+      </article>
+      <article class="product-card" data-state="provisional">
+        <p class="product-card-tag">Applets · exploratory</p>
+        <h3 class="product-card-name">Prims Applets</h3>
+        <p class="product-card-job">Compositions agents hit: a password or an approval. Not a third line.</p>
+        <p class="product-card-url"><a href="https://prims.sh/applets/">prims.sh/applets</a></p>
+      </article>
+      <article class="product-card">
+        <p class="product-card-tag">Viewer</p>
+        <h3 class="product-card-name">Prim Workbook</h3>
+        <p class="product-card-job">Living viewer. The pack is authority.</p>
+        <p class="product-card-url"><a href="https://prims.sh/workbook/">prims.sh/workbook</a></p>
+      </article>
+      <article class="product-card">
+        <p class="product-card-tag">Surface</p>
+        <h3 class="product-card-name">Prim viewers</h3>
+        <p class="product-card-job">A host frame. The pack stays the file. Not a Desktop connector.</p>
+        <p class="product-card-url"><a href="https://prims.sh/viewers/">prims.sh/viewers</a></p>
+      </article>
+      <article class="product-card">
+        <p class="product-card-tag">Category</p>
+        <h3 class="product-card-name">Together</h3>
+        <p class="product-card-job">File, tool, applet, process. Cite, don’t pour.</p>
+        <p class="product-card-url"><a href="https://prims.sh/together/">prims.sh/together</a></p>
+      </article>
+      <article class="product-card">
+        <p class="product-card-tag">Profile</p>
+        <h3 class="product-card-name">prim.process</h3>
+        <p class="product-card-job">A process written down clearly enough to run.</p>
+        <p class="product-card-url"><a href="https://prims.sh/process/">prims.sh/process</a></p>
+      </article>
+      <article class="product-card">
+        <p class="product-card-tag">Spec</p>
+        <h3 class="product-card-name">Docs</h3>
+        <p class="product-card-job">The spec as a prim. This page is the vessel.</p>
+        <p class="product-card-url"><a href="https://prims.sh/docs/">prims.sh/docs</a></p>
+      </article>
+      <article class="product-card">
+        <p class="product-card-tag">Demo</p>
+        <h3 class="product-card-name">Prim demo</h3>
+        <p class="product-card-job">Click through kinds. Each file becomes an editor.</p>
+        <p class="product-card-url"><a href="https://prims.sh/demo/">prims.sh/demo</a></p>
+      </article>
+      <article class="product-card">
+        <p class="product-card-tag">Registry</p>
+        <h3 class="product-card-name">Registry</h3>
+        <p class="product-card-job">Types, tools, applets. Live API is registry.prims.sh.</p>
+        <p class="product-card-url"><a href="https://registry.prims.sh/">registry.prims.sh</a></p>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <h2>Desktop chrome</h2>
+    <div class="rules">
+      <div class="rule">
+        <strong>Three doors</strong>
+        <span>Viewer · Connectors · Chat. Viewer is a surface, not a connector.</span>
+      </div>
+      <div class="rule">
+        <strong>Provisional</strong>
+        <span>Prim Secrets, Prim Approvals, and Drive-as-sync are leans. Do not cement them.</span>
+      </div>
+      <div class="rule">
+        <strong>Face</strong>
+        <span>prims.sh/desktop. Never desktop.prims.sh.</span>
+      </div>
+    </div>
+    <p class="ids" style="margin-top:1rem">
+      <span>UTI com.eidosagi.prim</span>
+      <span>app id sh.prims.desktop</span>
+      <span>team Y6CQ4SWPWM</span>
+      <span>/Applications/Prims Desktop.app</span>
+    </p>
+  </section>
+
+  <section>
+    <h2>Folio</h2>
+    <div class="marks">
+      <figure class="on-ink"><img src="assets/logos/folio-gold.svg" alt="folio gold"><figcaption>gold on ink</figcaption></figure>
+      <figure class="on-paper"><img src="assets/logos/folio-ink.svg" alt="folio ink"><figcaption>ink on paper</figcaption></figure>
+      <figure class="on-ink"><img src="assets/logos/folio-cream.svg" alt="folio cream"><figcaption>cream on ink</figcaption></figure>
+    </div>
+  </section>
+
+  <section>
+    <h2>Lockups · live 2026-08-27</h2>
+    <div class="lockups">
+      <figure class="on-paper">
+        <img class="word" src="assets/logos/logo.png" alt="Prim wordmark">
+        <figcaption>logo.png · Drive / Applets</figcaption>
+      </figure>
+      <figure class="on-paper">
+        <img class="word" src="assets/logos/logo-tight.png" alt="Prim tight wordmark">
+        <figcaption>logo-tight.png · Desktop</figcaption>
+      </figure>
+      <figure class="on-paper">
+        <img src="assets/logos/favicon.svg" alt="favicon" width="40" height="62">
+        <figcaption>favicon.svg</figcaption>
+      </figure>
+      <figure>
+        <img class="og" src="assets/logos/og.jpg" alt="Open Graph">
+        <figcaption>og.jpg · 1200×630</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section>
+    <h2>App icon · folio, not a new mark</h2>
+    <div class="marks">
+      <figure><img class="icon" src="assets/icons/app-icon-paper.svg" alt="app icon paper"><figcaption>paper · default Mac</figcaption></figure>
+      <figure><img class="icon" src="assets/icons/app-icon-ink.svg" alt="app icon ink"><figcaption>ink · dark tile</figcaption></figure>
+    </div>
+    <p class="note" style="margin-top:0.85rem">Full-bleed square. Same spine + folded page as folio.svg. Do not pre-round. Do not put the wordmark or the Eidos tridot on the icon.</p>
+  </section>
+
+  <section>
+    <h2>Usage</h2>
+    <div class="rules">
+      <div class="rule">
+        <strong>Do</strong>
+        <ul>
+          <li>Clear space: 1× spine width.</li>
+          <li>Folio ≥ 24px. Wordmark ≥ 24px. Tight ≥ 20px.</li>
+          <li>Ink on paper. Gold on ink.</li>
+          <li>Keep spine and folded corner.</li>
+        </ul>
+      </div>
+      <div class="rule">
+        <strong>Don’t</strong>
+        <ul>
+          <li>Never stretch, skew, shadow, or outline.</li>
+          <li>Never the Eidos tridot.</li>
+          <li>Never desktop.prims.sh.</li>
+          <li>Never the retired Eidos blue.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Block · EraHeadline</h2>
+    <div class="block-demo">
+      <header class="era-headline">
+        <p class="era-headline-kicker">prims.sh · desktop</p>
+        <h1 class="era-headline-title">Prims Desktop</h1>
+      </header>
+      <p class="lede" style="margin-top:1.25rem">Your personal Mac memory pack. Agents only see what you admit. The pack stays the truth.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Block · SourceList</h2>
+    <ol class="source-list">
+      <li>
+        <p class="source-list-label"><span class="source-list-num">13</span>Gutenberg Bible, c. 1455</p>
+        <p class="source-list-src">The 42-line Bible printed at Mainz, commonly dated 1454–55. Conventional marker for European movable-type printing at scale.</p>
+      </li>
+      <li>
+        <p class="source-list-label"><span class="source-list-num">14</span>Scribe vs press output</p>
+        <p class="source-list-src">A skilled scribe is commonly estimated at on the order of one Bible per year. A press could pull thousands of sheets in a day. Elizabeth L. Eisenstein, The Printing Press as an Agent of Change (1979).</p>
+      </li>
+    </ol>
   </section>
 </main>
 <script>

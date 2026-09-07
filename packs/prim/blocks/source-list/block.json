@@ -1,0 +1,12 @@
+{
+  "id": "block:source-list",
+  "name": "SourceList",
+  "when": "Evidence / citation list. Every number and quote gets a row: numeral, short label, source line. Matches the homepage Sources section.",
+  "refuses": [
+    "testimonial carousel",
+    "star ratings",
+    "unsourced statistic as decoration"
+  ],
+  "states": ["default"],
+  "implementation": { "html": "block.html", "css": "block.css" }
+}
