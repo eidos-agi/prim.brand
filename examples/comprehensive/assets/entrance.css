@@ -1,0 +1,1 @@
+@keyframes brand-enter { from { opacity: 0; } to { opacity: 1; } } .brand-enter { animation: brand-enter var(--brand-duration) 1; } @media(prefers-reduced-motion:reduce) { .brand-enter { animation:none; } }

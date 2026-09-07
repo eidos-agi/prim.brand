@@ -1,0 +1,56 @@
+{
+  "profile": "brand",
+  "brand_version": "0.2.0",
+  "identity_version": "1.0.0",
+  "id": "brand:example",
+  "name": "Example Brand",
+  "status": "draft",
+  "capabilities": [
+    "visual"
+  ],
+  "required_capabilities": [
+    "visual"
+  ],
+  "assets": [
+    {
+      "id": "mark:primary",
+      "role": "master",
+      "purpose": "logo",
+      "media_type": "image/svg+xml",
+      "representation": "vector",
+      "availability": "present",
+      "required": true,
+      "path": "assets/mark.svg",
+      "sha256": "92acd422600a0117bfc252da082c037625a00ac5b1f269075dc00b3461b6a6ca",
+      "view_box": [
+        0,
+        0,
+        64,
+        64
+      ],
+      "background": "transparent",
+      "editable": "geometry",
+      "approval": "candidate",
+      "rights": {
+        "status": "declared",
+        "license": "CC0-1.0",
+        "redistribution": "allowed"
+      }
+    }
+  ],
+  "rules": [],
+  "deliverables": [
+    {
+      "id": "deliverable:logo",
+      "asset_id": "mark:primary",
+      "required": true,
+      "purpose": "Primary mark"
+    }
+  ],
+  "visual": {
+    "primary_asset": "mark:primary",
+    "usage": [
+      "Synthetic fixture, not an approved commercial identity."
+    ]
+  }
+}

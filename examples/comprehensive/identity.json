@@ -1,0 +1,302 @@
+{
+  "profile": "brand",
+  "brand_version": "0.2.0",
+  "identity_version": "1.0.0",
+  "id": "brand:example",
+  "name": "Example Brand",
+  "status": "draft",
+  "capabilities": [
+    "visual",
+    "tokens",
+    "typography",
+    "verbal",
+    "templates",
+    "motion",
+    "sound",
+    "localization",
+    "relationships",
+    "lineage",
+    "approvals"
+  ],
+  "required_capabilities": [
+    "visual"
+  ],
+  "assets": [
+    {
+      "id": "mark:primary",
+      "role": "master",
+      "purpose": "logo",
+      "media_type": "image/svg+xml",
+      "representation": "vector",
+      "availability": "present",
+      "required": true,
+      "path": "assets/mark.svg",
+      "sha256": "92acd422600a0117bfc252da082c037625a00ac5b1f269075dc00b3461b6a6ca",
+      "view_box": [
+        0,
+        0,
+        64,
+        64
+      ],
+      "background": "transparent",
+      "editable": "geometry",
+      "approval": "candidate",
+      "rights": {
+        "status": "declared",
+        "license": "CC0-1.0",
+        "redistribution": "allowed"
+      }
+    },
+    {
+      "id": "mark:copy",
+      "role": "derivative",
+      "purpose": "mark:copy",
+      "media_type": "image/svg+xml",
+      "representation": "vector",
+      "availability": "present",
+      "required": false,
+      "path": "assets/mark-copy.svg",
+      "sha256": "92acd422600a0117bfc252da082c037625a00ac5b1f269075dc00b3461b6a6ca",
+      "background": "transparent",
+      "editable": "geometry",
+      "approval": "unreviewed",
+      "rights": {
+        "status": "declared",
+        "license": "CC0-1.0",
+        "redistribution": "allowed"
+      },
+      "derived_from": [
+        {
+          "id": "mark:primary",
+          "sha256": "92acd422600a0117bfc252da082c037625a00ac5b1f269075dc00b3461b6a6ca"
+        }
+      ],
+      "recipe": "recipe:copy"
+    },
+    {
+      "id": "motion:entrance",
+      "role": "support",
+      "purpose": "motion:entrance",
+      "media_type": "text/css",
+      "representation": "data",
+      "availability": "present",
+      "required": false,
+      "path": "assets/entrance.css",
+      "sha256": "c96dd8e7e229d4b944b0442a9a16bd54ec107ef3345e78b481e5fe00082bcf30",
+      "background": "not-applicable",
+      "editable": "none",
+      "approval": "unreviewed",
+      "rights": {
+        "status": "declared",
+        "license": "CC0-1.0",
+        "redistribution": "allowed"
+      }
+    },
+    {
+      "id": "sound:fixture",
+      "role": "support",
+      "purpose": "sound:fixture",
+      "media_type": "audio/wav",
+      "representation": "audio",
+      "availability": "present",
+      "required": false,
+      "path": "assets/silence.wav",
+      "sha256": "0a2fe36a69be8f2c34cb0c7ba55fcde01274ee065c0d71381d19ec2ca159c89b",
+      "background": "not-applicable",
+      "editable": "none",
+      "approval": "unreviewed",
+      "rights": {
+        "status": "declared",
+        "license": "CC0-1.0",
+        "redistribution": "allowed"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "rule:contrast",
+      "kind": "contrast",
+      "severity": "error",
+      "foreground": "#ffffff",
+      "background": "#000000",
+      "minimum": 4.5
+    }
+  ],
+  "deliverables": [
+    {
+      "id": "deliverable:logo",
+      "asset_id": "mark:primary",
+      "required": true,
+      "purpose": "Primary mark"
+    }
+  ],
+  "visual": {
+    "primary_asset": "mark:primary",
+    "usage": [
+      "Synthetic fixture, not an approved commercial identity."
+    ]
+  },
+  "recipes": [
+    {
+      "id": "recipe:copy",
+      "operation": "copy",
+      "tool": "stdlib.shutil",
+      "version": "python-3",
+      "parameters": {},
+      "deterministic": true,
+      "requires_review": false
+    }
+  ],
+  "tokens": {
+    "version": "2025.10",
+    "path": "tokens/dtcg.json",
+    "resolver": "tokens/resolver.json",
+    "modes": {
+      "light": {
+        "inputs": {
+          "theme": "light"
+        },
+        "selector": ":root"
+      },
+      "dark": {
+        "inputs": {
+          "theme": "dark"
+        },
+        "selector": "[data-palette=\"dark\"]"
+      }
+    },
+    "css": "kit.css",
+    "css_mapping": {
+      "--brand-text": "text",
+      "--brand-surface": "surface",
+      "--brand-space": "space.md",
+      "--brand-type": "type.body",
+      "--brand-duration": "motion.fast"
+    }
+  },
+  "typography": [
+    {
+      "id": "type:system",
+      "family": "System UI",
+      "strategy": "system",
+      "roles": [
+        "body",
+        "ui"
+      ],
+      "fallbacks": [
+        "system-ui",
+        "sans-serif"
+      ]
+    },
+    {
+      "id": "type:mark",
+      "family": "Outlined mark",
+      "strategy": "outlined",
+      "roles": [
+        "logo"
+      ],
+      "asset_ids": [
+        "mark:primary"
+      ]
+    }
+  ],
+  "verbal": {
+    "positioning": "A synthetic conformance example.",
+    "tone": [
+      "clear",
+      "literal"
+    ],
+    "preferred": [
+      "State what is known."
+    ],
+    "prohibited": [
+      "Invented performance claims."
+    ],
+    "claims": []
+  },
+  "templates": [
+    {
+      "id": "template:hero",
+      "name": "Hero",
+      "when": "First introduction.",
+      "refuses": [
+        "Unverified metrics."
+      ],
+      "states": [
+        "default"
+      ],
+      "slots": [
+        {
+          "name": "title",
+          "required": true,
+          "kind": "text"
+        }
+      ],
+      "implementation": {
+        "kind": "html-css",
+        "html": "blocks/hero/block.html",
+        "css": "blocks/hero/block.css"
+      },
+      "preview_asset": "mark:primary"
+    }
+  ],
+  "motion": [
+    {
+      "id": "motion:appear",
+      "asset_id": "motion:entrance",
+      "duration_ms": 180,
+      "iterations": 1,
+      "reduced_motion_asset": "mark:primary",
+      "purpose": "Optional introduction; no idle loop."
+    }
+  ],
+  "sound": [
+    {
+      "id": "sound:cue",
+      "asset_id": "sound:fixture",
+      "duration_ms": 80,
+      "silent_alternative": "Display the same state in text.",
+      "autoplay": false,
+      "purpose": "Silent synthetic fixture, not a production sonic signature."
+    }
+  ],
+  "localization": [
+    {
+      "locale": "en",
+      "direction": "ltr",
+      "wordmark_asset": "mark:primary",
+      "typeface_ids": [
+        "type:system"
+      ],
+      "copy": {
+        "title": "Example"
+      }
+    },
+    {
+      "locale": "fr",
+      "direction": "ltr",
+      "typeface_ids": [
+        "type:system"
+      ],
+      "fallback_locale": "en",
+      "copy": {
+        "title": "Exemple"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "id": "relationship:example",
+      "kind": "composition",
+      "brand_id": "brand:other",
+      "version": "1.0.0",
+      "identity_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "uri": "urn:example:brand:other",
+      "allowed_overrides": [],
+      "notes": "External synthetic reference; never fetched."
+    }
+  ],
+  "approvals": {
+    "path": "approvals.json"
+  }
+}

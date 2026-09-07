@@ -1,0 +1,52 @@
+{
+  "palette": {
+    "$type": "color",
+    "ink": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.02,
+          0.025,
+          0.04
+        ]
+      }
+    },
+    "paper": {
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.96,
+          0.97,
+          0.99
+        ]
+      }
+    }
+  },
+  "space": {
+    "$type": "dimension",
+    "md": {
+      "$value": {
+        "value": 16,
+        "unit": "px"
+      }
+    }
+  },
+  "type": {
+    "body": {
+      "$type": "fontFamily",
+      "$value": [
+        "system-ui",
+        "sans-serif"
+      ]
+    }
+  },
+  "motion": {
+    "fast": {
+      "$type": "duration",
+      "$value": {
+        "value": 180,
+        "unit": "ms"
+      }
+    }
+  }
+}

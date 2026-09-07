@@ -1,0 +1,15 @@
+/* Generated from DTCG 2025.10; do not hand-edit. */
+:root {
+  --brand-text: color(srgb 0.02 0.025 0.04 / 1);
+  --brand-surface: color(srgb 0.96 0.97 0.99 / 1);
+  --brand-space: 16px;
+  --brand-type: "system-ui", "sans-serif";
+  --brand-duration: 180ms;
+}
+[data-palette="dark"] {
+  --brand-text: color(srgb 0.96 0.97 0.99 / 1);
+  --brand-surface: color(srgb 0.02 0.025 0.04 / 1);
+  --brand-space: 16px;
+  --brand-type: "system-ui", "sans-serif";
+  --brand-duration: 180ms;
+}
