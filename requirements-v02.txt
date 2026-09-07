@@ -1,0 +1,4 @@
+jsonschema==4.26.0
+PyYAML==6.0.3
+tinycss2==1.5.1
+defusedxml==0.7.1
