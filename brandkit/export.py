@@ -10,7 +10,9 @@ from .tokens import check
 
 def export_asset(pack: Path,asset_id: str,target: Path,width: int|None=None,trust: Path|None=None):
     pack=Path(pack).resolve();asset=select(pack,{'id':asset_id},trust)
-    source=local(pack,asset['path']);check(source.suffix.lower() not in FONT_SUFFIXES,'font redistribution is not supported')
+    source=local(pack,asset['path']);operation='copy' if width is None else 'rasterize' if asset['media_type']=='image/svg+xml' else 'resize'
+    check(operation not in asset.get('constraints',{}).get('forbidden_transforms',[]),'export transformation explicitly forbidden by the identity')
+    check(source.suffix.lower() not in FONT_SUFFIXES,'font redistribution is not supported')
     target=output_root(pack,target)
     if width is not None:check(type(width)==int and 1<=width<=8192,'width must be an integer in 1..8192')
     target.parent.mkdir(parents=True,exist_ok=True);target.mkdir()

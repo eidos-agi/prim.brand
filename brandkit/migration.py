@@ -41,19 +41,22 @@ def migrate(source: Path,target: Path):
     identity['extensions']={'org.prims.legacy':{'profile_version':'0.1.0','identity_sha256':sha(local(source,'identity.json')),
         'blocks':old.get('content_blocks',[]),'deprecated':old.get('deprecated',{})}}
     for block in old.get('content_blocks',[]):notes.append({'kind':'block','id':block['id'],'action':'preserved-as-migration-reference','review_required':True})
-    legacy_tokens=None
+    legacy_tokens=None;raw_legacy_tokens=None
     if (source/'tokens/dtcg.json').exists():
-        legacy_tokens=load(local(source,'tokens/dtcg.json'))
-        def convert(node):
+        raw_legacy_tokens=load(local(source,'tokens/dtcg.json'))
+        legacy_tokens=copy.deepcopy(raw_legacy_tokens)
+        legacy_tokens.pop('$schema',None)
+        def convert(node,inherited=None):
             if isinstance(node,dict):
-                out={k:convert(v) for k,v in node.items()}
-                typ=out.get('$type');v=out.get('$value')
+                typ=node.get('$type',inherited)
+                out={k:convert(v,typ) if not k.startswith('$') else copy.deepcopy(v) for k,v in node.items()}
+                v=out.get('$value')
                 if typ=='color' and isinstance(v,str) and re.fullmatch('#[0-9a-fA-F]{6}',v):out['$value']={'colorSpace':'srgb','components':[int(v[i:i+2],16)/255 for i in (1,3,5)]}
                 if typ in ('dimension','duration') and isinstance(v,str):
                     m=re.fullmatch(r'(-?[0-9.]+)(px|rem|ms|s)',v)
                     if m:out['$value']={'value':float(m.group(1)),'unit':m.group(2)}
                 return out
-            if isinstance(node,list):return [convert(x) for x in node]
+            if isinstance(node,list):return [convert(x,inherited) for x in node]
             return node
         legacy_tokens=convert(legacy_tokens);resolved=resolve(legacy_tokens)
         mapping={}
@@ -73,6 +76,7 @@ def migrate(source: Path,target: Path):
             dest=work/path;dest.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(local(source,path),dest)
         save(work/'identity.json',identity)
         save(work/'migration/legacy-identity.json',old)
+        if raw_legacy_tokens is not None:save(work/'migration/legacy-tokens.json',raw_legacy_tokens)
         (work/'index.md').write_text('---\nprofile: brand\ntype: kit\nbrand_version: "0.2.0"\ntitle: '+json.dumps(identity['name'])+'\nstatus: draft\n---\n\nMigrated identity; review the migration report.\n','utf-8')
         (work/'log.md').write_text('# Change log\n\nMigrated non-destructively from a v0.1.0 pack. No approval inherited.\n','utf-8')
         if legacy_tokens is not None:save(work/'tokens/dtcg.json',legacy_tokens);compile_tokens(work)

@@ -1,5 +1,5 @@
-# Brand contract 0.2 implementation
+# Implementation status
 
-This branch implements the requested expansion of the public prim.brand format. It is separate from the existing draft Prim product-brand PR. Legacy house packs and the legacy validator remain unchanged. Private brand artwork and private approval evidence must not be included in this repository.
+The feature branch contains an executable 0.2 implementation, schemas, tests, examples and CI. Exact CI results belong in generated `reports/` and the corresponding GitHub Actions run; this note itself does not certify a run.
 
-The implementation separates structural conformance, asset integrity, completeness, brand rules, rendering evidence, and externally verified approval. Tests and detailed delivery evidence are added with the implementation; this note does not claim that CI has passed or that any production brand has been approved.
+All previous house packs, the 0.1 validator, and the separate draft Prim product-brand PR remain unchanged. Private brand artwork and private approval evidence stay outside this public repository. Production approval, hosted MCP deployment and independent certification are not implied by this implementation.

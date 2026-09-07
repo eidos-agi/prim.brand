@@ -72,7 +72,7 @@ class Server:
                 raise RPCError(-32602,'Provide per-request metadata or complete legacy initialization')
             if method=='server/discover':
                 result={'supportedVersions':VERSIONS,'capabilities':{'tools':{'listChanged':False}},'instructions':'Read-only local brand contract. No remote access or publication.'}
-            elif method=='ping':result={}
+            elif method=='ping' and not modern:result={}
             elif method=='tools/list':result={'tools':TOOLS}
             elif method=='tools/call':
                 try:
@@ -98,7 +98,7 @@ def main():
         if not line:break
         if len(line)>1024*1024:
             print(json.dumps({'jsonrpc':'2.0','id':None,'error':{'code':-32600,'message':'Request exceeds 1 MiB'}}),flush=True);return 2
-        try:msg=json.loads(line,object_pairs_hook=pairs);reply=server.handle(msg)
+        try:msg=json.loads(line,object_pairs_hook=pairs,parse_constant=lambda value: (_ for _ in ()).throw(Invalid('non-finite JSON number')));reply=server.handle(msg)
         except (Invalid,ValueError,UnicodeError,RecursionError):reply={'jsonrpc':'2.0','id':None,'error':{'code':-32700,'message':'Parse error'}}
         if reply is not None:print(json.dumps(reply,ensure_ascii=False),flush=True)
     return 0

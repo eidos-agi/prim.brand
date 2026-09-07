@@ -63,8 +63,10 @@ def inspect_asset(pack,asset):
         tags={node.tag.split('}')[-1] for node in root.iter()}
         check(not tags & {'script','foreignObject','iframe','object','embed'},'active SVG element forbidden')
         for node in root.iter():
+            if node.tag.split('}')[-1]=='style':css_scan(node.text or '',set())
             for key,val in node.attrib.items():
                 k=key.split('}')[-1].lower()
+                if k=='style':css_scan(val,set())
                 check(not k.startswith('on'),'SVG event handler forbidden')
                 if k=='href':check(val.startswith('#'),'external/embedded SVG dependency forbidden')
                 if 'url(' in val:
